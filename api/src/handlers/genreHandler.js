@@ -1,22 +1,24 @@
+const {getGenres} = require ("../controllers/getGenreController")
+
+
+
 const genreHandler=async(req,res) =>{
 const{genres}= req.body;
 try {
-    const AllGenres = await arrayGenres(genres);
+  const AllGenres = await getGenres(genres);
    
-    res.status(201).json(AllGenres)
-    }
+   res.status(201).json(AllGenres)
+  }
     
      catch(error){
-    res.status(400).json({error:error.message})
-    } }
+  res.status(400).json({error:error.message})
+   } }
 
 
 
 
-module.exports={
-    genreHandler
-
-}
+module.exports=
+ {genreHandler}
 
 ////Por genero: "https://api.rawg.io/api/genres"
 //--------------------📍 GET | /genres----------------------------------------------------

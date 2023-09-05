@@ -11,7 +11,7 @@ const getVideogamesHandler= async(req,res) =>{
 try {
     const {name} = req.query;
 const resultsGame = name ? await searchGameByName(name): await getAllVideogames();
-res.status(200).json(resultsGame);
+res.status(201).json(resultsGame);
 } catch (error) {
   return res.status(500).json({error:error.message})
 
@@ -31,17 +31,18 @@ const getGameByIdHandler=async(req,res) =>{
     }
     }
 
+  ////NO ESTA DESCRIPTION POR QUE NO TENGO ESE DATO EN MI CONTROLLER ALLVIDEOGAMES
   
 const postCreateHandler= async(req,res) =>{
-    const{ name, released,rating,rating_top,background_image,platform,description,genres}= req.body;
+    try { 
+      const{ name, released,rating,rating_top,background_image,platform,genres}= req.body;
 
-    try {
-    const newGame = await createVideoGames( name, released,rating,rating_top,background_image,platform,description,genres);
+   
+    const newGame = await createVideoGames( name, released,rating,rating_top,background_image,platform,genres);
     res.status(201).json(newGame)
     }
-    
      catch(error){
-    res.status(400).json({error:error.message})
+    res.status(500).json({error:error.message})
     } }
 
 

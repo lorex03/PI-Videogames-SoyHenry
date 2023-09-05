@@ -8,14 +8,20 @@ module.exports = (sequelize) => {
   type: DataTypes.INTEGER,
  autoincrement:true,
   primaryKey: true,
+
 },  
 
 name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+  created: {
+    type:DataTypes.BOOLEAN,
+    defaultValue:true,
+    
+       }
+  },
 
 
-
-  });
+  {timestamps: false});
 };

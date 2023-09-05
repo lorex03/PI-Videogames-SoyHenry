@@ -4,19 +4,17 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo  id,name, released,rating,rating_top,background_image,platform
   sequelize.define('videogame', {
-  id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
     },
+
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //store: {
-      //type: DataTypes.TEXT,
-      //allowNull: false,
-    //},
+ 
     released: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -32,8 +30,12 @@ module.exports = (sequelize) => {
     rating_top:{
 type: DataTypes.INTEGER,
 allowNull:false
+  },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
 
-},
 
     background_image: {
       type: DataTypes.STRING,
@@ -41,17 +43,17 @@ allowNull:false
       validate: {
         isUrl: true,
       }, 
-    
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
+  
     },
     platform: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-   
+   created:{
+type:DataTypes.BOOLEAN,
+defaultValue:true,
+
+   }
 
   },{timestamps:false});
 };
