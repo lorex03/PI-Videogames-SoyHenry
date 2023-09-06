@@ -24,9 +24,24 @@ const axios = require('axios');
 
 const getAllVideogames =async () => {
   //try {
-  const VideogameApi = ( await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)).data;
-  
+ 
+
+
+//const url = `https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`;
+ 
+  for(let page =1; page  <= 5; page ++){
+   const pagePromises=[];
+ const VideogameApi = ( await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`)).data; 
+ 
+  pagePromises.push(VideogameApi)
+ 
+ 
+
   const gamesApi=infoCleaner(VideogameApi)
+
+const pageResponses=await Promise.all( gamesApi)
+
+
  
 const VideogameDB = await Videogame.findAll({
     include: [{
@@ -43,10 +58,10 @@ const VideogameDB = await Videogame.findAll({
     name: genre.name,
   }));
  
-  const allVideogame=[...gamesApi , ...genres] ;
+  const allVideogame=[...pageResponses , ...genres] ;
   return allVideogame
 }
- 
+ }
 //`http://localhost:3001/videogames/name?name=${name}`
  
 
