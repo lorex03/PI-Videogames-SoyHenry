@@ -23,45 +23,94 @@ const axios = require('axios');
 
 
 const getAllVideogames =async () => {
-  //try {
- 
+  const data0 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}`)
+  .then((response) => response.data); //aca solo traemos la pagina 1, la de
+const data1 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`)
+  .then((response) => response.data);
+const data2 = await axios(
+  `https://api.rawg.io/api/games?key=${API_KEY}&page=3`
+).then((response) => response.data);
+const data3 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=4`)
+  .then((response) => response.data);
+const data4 = await axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=5`)
+  .then((response) => response.data);
 
 
-//const url = `https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`;
- 
-  for(let page =1; page  <= 5; page ++){
-   const pagePromises=[];
- const VideogameApi = ( await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`)).data; 
- 
-  pagePromises.push(VideogameApi)
- 
- 
+await Promise.all([data0, data1, data2, data3, data4]).then((p) => {
+  apiGame = p[0].results
+    .concat(p[1].results)
+    .concat(p[2].results)
+    .concat(p[3].results)
+    .concat(p[4].results)
+   
+});
 
-  const gamesApi=infoCleaner(VideogameApi)
+const allVideogamesApi = await apiGame.map((v) => {
+  return {
+    id: v.id,
+    name: v.name,
+    released: v.released,
+    background_image: v.background_image,
+    rating: v.rating,
+    rating_top: v.rating_top,
+    platforms: v.platforms.map((p) => p.platform.name),
+    genres: v.genres.map((g) => g.name),
+  };
+});
 
-const pageResponses=await Promise.all( gamesApi)
+
+//traigo info de la db:
+
+const videogamesDatabase = await Videogame.findAll({
+  include: {
+    model: Genre,
+    attributes: ["name"],
+    through: {
+      attributes: [], //de la tabla intermedia no quiero nada
+    },
+  },
+});
+
+//unimos a los datos de la api con los de la db
+
+const infoVideogame = allVideogamesApi.concat(videogamesDatabase);
+
+//volvemos a mapear y retornamos todo junto
+
+const allVideogames = infoVideogame.map((videogame) => {
+  return {
+    id: videogame.id,
+    name: videogame.name,
+    released: videogame.released,
+    background_image: videogame.background_image,
+    rating: videogame.rating,
+    rating_top: videogame.rating_top,
+    platforms: videogame.platforms,
+    genres: videogame.genres || videogame.Genres.map(g => g.name), //Genres.map:mapea los de la database
+  };
+});
 
 
- 
-const VideogameDB = await Videogame.findAll({
-    include: [{
-        model: Genre,
-     attributes: ['name'],
-       through: {
-            attributes: [],
-       }
-    }]
-  }); 
+// console.log(allVideogames);
 
-  const genres = VideogameDB.map((genre) => ({
-    id: genre.id,
-    name: genre.name,
-  }));
- 
-  const allVideogame=[...pageResponses , ...genres] ;
-  return allVideogame
+//de prueba:
+// const {data} = await axios(`https://api.rawg.io/api/games?key=${API_KEY}`);
+// return data
+
+if (allVideogames.length === 0) {
+    return "No hay videojuegos en este momento"
+
 }
- }
+return allVideogames;
+
+
+
+
+
+
+
+}
+
 //`http://localhost:3001/videogames/name?name=${name}`
  
 
