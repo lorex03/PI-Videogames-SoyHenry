@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-
+import style from "../SearchAndFilters/SearchAndFilter.module.css"
 import { filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
 
 const SearchAndFilter = () => {
@@ -95,7 +95,7 @@ const SearchAndFilter = () => {
     }
 
 return (
-<div>
+<div className={style.body}>
 <p>Genres:  </p>
 <select onChange={handleClick} name="genres">
 {
@@ -129,7 +129,7 @@ return (
             
                 </select>
 
-<div>
+<div className={style.nam}>
 
 <input type="search" onKeyUp={handleEnter} placeholder="Search by name"/>
 </div>

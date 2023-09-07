@@ -1,11 +1,64 @@
+import style from "../Detail Page/Detail.module.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { resetById } from '../../../redux/actions';
+
+
+
 const Detail = () => {
-    return(
-    <div>
-    <h1>ESTE ES EL Detail JEJ</h1>
-    
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const game = useSelector( state => state.gameById );
+  
+  const clickBack = () => {
+    console.log("hola");
+    navigate("/home");
+    dispatch(resetById());
+}
+  
+// id,name,background_image,platform,description,released,rating,genres  
+  //en caso fijarme de la etiqueta img sino trae l.aa imagen jeje 
+  return(
+   
+    <div className={style.gen}>
+       
+        <div backgound_image={game.backgound_image} >
+        </div>
+
+
+        <div className={style.detail}>
+            <h1> {game.name} </h1>
+             {
+              game.released && game.released.includes("released") ? <p> Released:  {game.released.split(" - ")[1]}</p> 
+              : <p> Released{game.released} released </p>
+             }
+
+
+
+            <div className={style.rat}>
+                <p> Rating:   {game.rating} rating top </p>
+                <p> description:   {game.description} description: </p>
+            </div>
+           
+           
+
+
+
+            <div>
+                <h2>Genres</h2>
+                <ul>
+                    { game.genres && game?.genres.map( genre => <li>{genre}</li>)}
+                </ul>
+                <h2>Platform</h2>
+                <ul>
+                    { game.platform && game?.platform.map( platform => <li>{platform}</li>)}
+                </ul>
+
+            </div>
+            <button onClick={clickBack}>GO BACK</button>
+        </div>
     </div>
-    
-    
+
     )
     }
     
@@ -33,3 +86,12 @@ const Detail = () => {
        // Fecha de lanzamiento.  =  RELEASED
     //    Rating.=               RATIN Y RATING TOP
     // Géneros. =                  GENRES
+
+    
+     //  Nombre.
+   //    Imagen.
+     // Plataformas.
+  //    Descripción.
+       // Fecha de lanzamiento. 
+    //    Rating.
+    // Géneros.

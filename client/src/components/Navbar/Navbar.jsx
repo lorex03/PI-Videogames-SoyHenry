@@ -23,10 +23,10 @@ onClick={handleClick}>PI-VIDEOGAMES-HENRY
 
  </NavLink>
 
-                <NavLink to="/createDog">
+                <NavLink to="/createGame">
                    
                    
-                    <p>CREATE DOG</p>
+                    <p>CREATE GAME</p>
              
              
                 </NavLink>

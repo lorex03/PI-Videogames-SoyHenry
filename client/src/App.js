@@ -46,7 +46,7 @@ function App() {
         (location.pathname !== '/') ? <Navbar />: null
       }
       {
-        (location.pathname !== '/' && location.pathname !== '/createDog' && !location.pathname.startsWith('/detail/')) ? <SearchAndFilter /> : null
+        (location.pathname !== '/' && location.pathname !== '/createGame' && !location.pathname.startsWith('/detail/')) ? <SearchAndFilter /> : null
       }
    
 

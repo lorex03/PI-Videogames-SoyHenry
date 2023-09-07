@@ -6,7 +6,9 @@ import {
     GET_BY_NAME, FILTER_GENRES, FILTER_RATING, FILTER_ALPHABETIC,
     GET_GAMES_API,
     GET_GAMES_CREATE,
-    RESET_FILTERS
+    RESET_FILTERS,
+    REST_BY_ID,
+    GET_GAMES_BY_ID
 
 } from "./actions-type"
 
@@ -20,6 +22,7 @@ const initialState = {
    
     genres : [],
 
+    gameById: [],
 
 
    gamesByName: {
@@ -74,7 +77,12 @@ const reducer = (state = initialState, {type,payload}) => {
                     }
                 }
         
-
+                case GET_GAMES_BY_ID:
+                    return {
+                        ...state,
+                        gameById: payload
+                    }
+        
 
             case GET_GENRES:
                 return {
@@ -273,7 +281,11 @@ const reducer = (state = initialState, {type,payload}) => {
                     data: []
                 },
             }
-         
+            case REST_BY_ID: 
+            return {
+                ...state,
+                gameById: []
+            }
          
          
          

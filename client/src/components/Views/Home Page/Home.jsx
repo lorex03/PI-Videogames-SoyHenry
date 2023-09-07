@@ -1,6 +1,6 @@
 import Cards from "../../CardsContainer/Cards"
 import {  useSelector } from 'react-redux';
-
+import style from "../Home Page/Home.module.css"
 
 const Home = () => {
     const display = useSelector( state => state.displayState );
@@ -111,11 +111,11 @@ let result;
 
 
 return (
-    <>
+    <div className={style.body}>
         {
             <Cards games={result} /> 
         }
-    </>
+    </div>
 )
 }
 

@@ -9,7 +9,8 @@ import  {
     GET_BY_NAME, FILTER_GENRES, FILTER_RATING, FILTER_ALPHABETIC,
     GET_GAMES_API,
     GET_GAMES_CREATE,
-    RESET_FILTERS
+    RESET_FILTERS,
+    REST_BY_ID
 
 } from "./actions-type"
 
@@ -54,6 +55,10 @@ export const getGamesById = (id) => {
     }
 }
 
+export const resetById = () => {
+    return { type: REST_BY_ID }
+}
+
 
 export const getGenres = () => {
     return async (dispatch) => {
@@ -72,7 +77,7 @@ export const setCurrentPage = (number) => {
     return { type: SET_CURRENT_PAGE, payload: number }
 }
 
-//Filtar por temperaments.(GENEROS) (genres)
+//Filtar por (GENEROS) (genres)
 
 export const filterGenres = (genre) => {
     return { type: FILTER_GENRES, payload: genre}
@@ -86,6 +91,8 @@ export const filterRating = (typeWeight) => {
 export const filterAlphabetic = (typeAlphabetic) => {
     return { type: FILTER_ALPHABETIC, payload: typeAlphabetic}
 }
+//!resetFilterAll (todos)
+
 export const resetFilterAll = () => {
     return { type: RESET_FILTERS }
 }
@@ -96,13 +103,3 @@ export const getGamesApi = () => {
 export const getGamesCreate = () => {
     return { type: GET_GAMES_CREATE }
 }
-
-
-
-
-//get genre
-
-
-
-
-//setCurrentPage
