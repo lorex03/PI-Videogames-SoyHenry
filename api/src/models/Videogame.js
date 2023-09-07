@@ -38,13 +38,16 @@ allowNull:false
 
 
     background_image: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true,
-      }, 
+      
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+    //  type: DataTypes.STRING,
+     // allowNull: true,
+      //validate: {
+       // isUrl: true,
+      //}, 
   
-    },
     platform: {
       type: DataTypes.STRING,
       allowNull: false,

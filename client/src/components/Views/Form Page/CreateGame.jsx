@@ -10,3 +10,39 @@ const CreateGame = () => {
     }
     
     export default CreateGame;
+
+
+    //____________________________________________________________________
+   // 📍 FORM PAGE |: en esta vista se encontrará 
+ //  el formulario para crear un nuevo videojuego.
+    //____________________________________________________________________
+
+//Este formulario debe ser controlado completamente con JavaScritp. 
+//No se pueden utilizar validaciones HTML,
+ //ni utilizar librerías especiales para esto. 
+//Debe contar con los siguientes campos:
+
+//Nombre. = name 
+//Imagen. = background image 
+//Descripción. description
+//Plataformas. platform 
+//Fecha de lanzamiento. released
+//Rating. rating 
+    //____________________________________________________________________
+
+//Posibilidad de seleccionar/agregar varios géneros en simultáneo.
+    //____________________________________________________________________
+
+//Botón para crear el nuevo videojuego.
+    //____________________________________________________________________
+
+//[IMPORANTE]: es requisito que el formulario de creación
+ //esté validado sólo con JavaScript. 
+    //____________________________________________________________________
+
+ //Puedes agregar las validaciones que consideres. 
+    //____________________________________________________________________
+
+ //Por ejemplo: que el nombre del videojuego no pueda contener símbolos, 
+
+ //o que el rating no pueda exceder determinado valor, etc.

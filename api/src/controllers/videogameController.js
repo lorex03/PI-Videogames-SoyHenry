@@ -111,8 +111,6 @@ return allVideogames;
 
 }
 
-//`http://localhost:3001/videogames/name?name=${name}`
- 
 
  // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
 
