@@ -21,10 +21,10 @@ const Card = ({id, background_image, name,genres}) => {
            
                     </div>
 
-
+<div className={style.gen}>
                     <h1>{name}</h1>
 
-                    <div className={style.gen}>
+                    
                         {   
                             genres?.map( (element,index) => {
                                 return (index <= 3) ? <p key={index}>{element}</p> : null

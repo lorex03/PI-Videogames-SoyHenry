@@ -20,7 +20,7 @@ const mapGenre = (array) => {
 return array.results.map ((genre) =>{
 
 return{
-id:genre.id ,
+
 name:genre.name
 }
 
