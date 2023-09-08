@@ -94,6 +94,7 @@ const SearchAndFilter = () => {
          }
     }
 
+
 return (
 <div className={style.body}>
 <p>Genres:  </p>
@@ -108,15 +109,7 @@ return (
 
 
 
-
-<p>Rating</p>
-<select onChange={handleClick} name="Rating">
-
-<option value="minimun">Minimun</option>
-
-<option value="maximum">Maximum</option>
-
-</select>
+      
 
 <p>Alphabetic</p>
                 

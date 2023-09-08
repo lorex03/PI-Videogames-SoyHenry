@@ -1,0 +1,10 @@
+.body{
+    display: block;
+    grid-template-columns: auto;
+    text-align: center;
+    color:rgb(236, 233, 250);
+ font-size:  20px;
+ margin-top: auto;
+ border-radius: 0ch;
+ padding-top: 6cm;
+}

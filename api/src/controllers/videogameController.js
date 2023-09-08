@@ -45,16 +45,16 @@ await Promise.all([data0, data1, data2, data3, data4]).then((p) => {
    
 });
 
-const allVideogamesApi = await apiGame.map((v) => {
+const allVideogamesApi = await apiGame.map((g) => {
   return {
-    id: v.id,
-    name: v.name,
-    released: v.released,
-    background_image: v.background_image,
-    rating: v.rating,
-    rating_top: v.rating_top,
-    platforms: v.platforms.map((p) => p.platform.name),
-    genres: v.genres.map((g) => g.name),
+    id: g.id,
+    name: g.name,
+    released: g.released,
+    background_image: g.background_image,
+    rating: g.rating,
+    rating_top: g.rating_top,
+    platforms: g.platforms.map((p) => p.platform.name),
+    genres: g.genres.map((g) => g.name),
   };
 });
 
@@ -198,15 +198,15 @@ return gamesForApi
        
   const createVideoGames= async(req,res) => {
     try {
-      const{ name, released,rating,rating_top,background_image,platform,description,genres}= req.body;
-      if(!name || !released || !rating || !rating_top || !background_image || !platform || !genres || !description )throw new Error ("Falta por llenar datos");
+      const{ name, released,rating,background_image,description,genres}= req.body;
+      if(!name || !released || !rating || !background_image ||  !genres || !description )throw new Error ("Falta por llenar datos");
  const newVideogame = await Videogame.create({
     name,
      released,
      rating,
-     rating_top,
+   //  rating_top,
      background_image,
-     platform,
+    // platform,
      description,
      genres
 })
