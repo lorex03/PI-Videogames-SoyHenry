@@ -10,7 +10,8 @@ import  {
     GET_GAMES_API,
     GET_GAMES_CREATE,
     RESET_FILTERS,
-    REST_BY_ID
+    REST_BY_ID,
+    CREATE_GAME
 
 } from "./actions-type"
 
@@ -102,4 +103,23 @@ export const getGamesApi = () => {
 
 export const getGamesCreate = () => {
     return { type: GET_GAMES_CREATE }
+}
+
+
+export const createGame = (game) => {
+    return async (dispatch) => {
+        try {
+            const url = "http://localhost:3001/videogames";
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            const {data} = await axios.post(url,game,config);
+            dispatch({type: CREATE_GAME, payload: data})
+        } catch (error) {
+            //console.log(error);
+            alert("error: " + error.response.data.error);
+        }
+    }
 }

@@ -22,9 +22,9 @@ const SearchAndFilter = () => {
             dispatch(setCurrentPage(1));
         }
         if(e.currentTarget.name === "rating") {
-            const weightSearch = e.target.value;
+            const ratingSearch = e.target.value;
             //console.log(weightSearch);
-            dispatch(filterRating(weightSearch));
+            dispatch(filterRating(ratingSearch));
             dispatch(setCurrentPage(1));
         }
         if(e.currentTarget.name === "alphabetic") {
@@ -123,7 +123,7 @@ return (
                 
                 <select onChange={handleClick} name="alphabetic">
             
-                <option value="descendent">descendent</option>
+                <option value="descendent">Descendent</option>
                 <option value="ascendent">Ascendent</option>
             
             

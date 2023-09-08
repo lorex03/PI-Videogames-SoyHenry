@@ -92,24 +92,6 @@ let result;
     result = gamesByName.data;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 return (
     <div className={style.body}>
         {

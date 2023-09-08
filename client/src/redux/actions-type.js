@@ -13,6 +13,7 @@ const GET_GAMES_API ="GET_GAMES_API";
 const RESET_FILTERS="RESET_FILTERS";
 const GET_GAMES_CREATE ="GET_GAMES_CREATE";
 const REST_BY_ID = "REST_BY_ID ";
+const CREATE_GAME="CREATE_GAME";
 
 
 module.exports= {
@@ -28,5 +29,6 @@ module.exports= {
     GET_GAMES_CREATE,
     RESET_FILTERS,
     GET_GAMES_BY_ID,
-    REST_BY_ID
+    REST_BY_ID,
+    CREATE_GAME
 }

@@ -8,7 +8,8 @@ import {
     GET_GAMES_CREATE,
     RESET_FILTERS,
     REST_BY_ID,
-    GET_GAMES_BY_ID
+    GET_GAMES_BY_ID,
+    CREATE_GAME
 
 } from "./actions-type"
 
@@ -90,7 +91,12 @@ const reducer = (state = initialState, {type,payload}) => {
                     genres: payload
                 }
     
-
+                case CREATE_GAME:
+                    return {
+                        ...state,
+                        genres: payload
+                    }
+        
 
             case SET_CURRENT_PAGE: 
             return {

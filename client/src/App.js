@@ -26,7 +26,7 @@ function App() {
   //! Usamos el useEffect para que cada vez que se recargue la pagina, me traiga todos los perros de la api con getDogs
   useEffect( () => {
     //! Me va a traer todos los perros siempre y cuando sea la url "/home"
-    if(location.pathname === "/home" || location.pathname === "/createDog") {
+    if(location.pathname === "/home" || location.pathname === "/createGame") {
       dispatch(getGenres());
       dispatch(setCurrentPage(1));
     }
@@ -58,10 +58,6 @@ function App() {
         <Route path='*' element={ <Error404 />} />
       </Routes>
 |
-
-
-
-
 
 
     </div>

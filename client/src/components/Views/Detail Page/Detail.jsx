@@ -21,9 +21,8 @@ const Detail = () => {
   return(
    
     <div className={style.gen}>
-       
-        <div backgound_image={game.backgound_image} >
-        </div>
+   
+   <img src ={game.background_image}/>
 
 
         <div className={style.detail}>

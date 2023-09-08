@@ -1,9 +1,10 @@
 import style from "./Card.module.css"
 
-
+//import { Link } from "react-router-dom";
 import { getGamesById } from "../../redux/actions";
 
 import { useDispatch } from 'react-redux';
+import { Link, NavLink } from "react-router-dom";
 const Card = ({id, background_image, name,genres}) => {
 
     const dispatch = useDispatch();
@@ -33,12 +34,15 @@ const Card = ({id, background_image, name,genres}) => {
                     </div>
 
                     <div className={style.det}>
-                        <div to={`/detail/${id}`} >
-                            <p onClick={clickDetail}> {`>`} </p>
+                    <Link to={`/detail/${id}`}>
+       <button type='submit' onClick={clickDetail}> {`>`}</button>
+    </Link>
+ 
+                     
+                       
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 
