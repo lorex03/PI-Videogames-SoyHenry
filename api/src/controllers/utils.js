@@ -28,9 +28,19 @@ name:genre.name
 
 }
 
+const mapPlatform = (array) => {
+   return array.results.map ((platform) =>{
+   
+   return{
+   
+   name:platform.name
+   }
+   
+   })
+   
+   }
 
 
 
 
-
-   module.exports={infoCleaner,mapGenre}
+   module.exports={infoCleaner,mapGenre,mapPlatform}
