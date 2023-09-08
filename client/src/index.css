@@ -4,11 +4,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./components/Views/utils/desktop-wallpaper-tales-of-zestiria-the-x-12-tales-of-zestiria-the-x.jpg");
+  background-size: cover;
   max-width: 100%;
   max-height: 100%;
-  background-image: url("./components/Views/utils/0IKNvd1.jpg");
-  background-size: cover;
-
 }
  
 code {

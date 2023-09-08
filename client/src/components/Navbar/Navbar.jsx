@@ -11,9 +11,9 @@ const Navbar = () => {
 
   return (
 
-<div>
+<div className={style.body}>
 
-<div className={style.tittle}
+<div 
 onClick={handleClick}>PI-VIDEOGAMES-HENRY
 
 </div>
@@ -31,13 +31,13 @@ onClick={handleClick}>PI-VIDEOGAMES-HENRY
              
                 </NavLink>
              
-             
+             <div className={style.log}>
                 <NavLink to="/" >
              
                     <p>LOGOUT</p>
              
                 </NavLink>
- 
+ </div>
  </div>
   )
 

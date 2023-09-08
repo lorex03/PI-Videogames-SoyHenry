@@ -4,7 +4,7 @@ import style from './Landing.module.css';
 
 const Landing = ({login}) => {
     return(
-    <div className={style.h1}>
+    <div className={style.body}>
     <h1>WELCOME </h1>
 
     <button type='submit' onClick={login}> HOME</button>

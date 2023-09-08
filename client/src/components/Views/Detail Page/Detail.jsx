@@ -14,6 +14,7 @@ const Detail = () => {
     console.log("hola");
     navigate("/home");
     dispatch(resetById());
+    
 }
   
 // id,name,background_image,platform,description,released,rating,genres  
@@ -29,14 +30,15 @@ const Detail = () => {
             <h1> {game.name} </h1>
              {
               game.released && game.released.includes("released") ? <p> Released:  {game.released.split(" - ")[1]}</p> 
-              : <p> Released{game.released} released </p>
+              : <p> Released:{game.released} </p>
              }
 
 
 
             <div className={style.rat}>
-                <p> Rating:   {game.rating} rating top </p>
-                <p> description:   {game.description} description: </p>
+                <p> Rating:   {game.rating}  </p>
+                <p> Rating_Top:   {game.rating_top}  </p>
+                <p> Description:   {game.description}  </p>
             </div>
            
            

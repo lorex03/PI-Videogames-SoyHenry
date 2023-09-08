@@ -1,4 +1,31 @@
+//ver si pongo algun videito 
+
+import { validation } from "./validation";
+import { useState } from "react";
+import {  useSelector, useDispatch } from 'react-redux';
+import { createGame, displayState } from "../../../redux/actions";
+
+import { useNavigate } from 'react-router-dom';
+
 const CreateGame = () => {
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     return(
     <div>
     <h1>ESTE ES EL CreateGame JEJ</h1>
@@ -6,9 +33,23 @@ const CreateGame = () => {
     </div>
     
     
+    
+    
+    
+    
     )
     }
     
+
+
+
+
+
+
+
+
+
+
     export default CreateGame;
 
 

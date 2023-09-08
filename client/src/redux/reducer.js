@@ -3,7 +3,8 @@ import {
     GET_GAMES,
     GET_GENRES,
     SET_CURRENT_PAGE,
-    GET_BY_NAME, FILTER_GENRES, FILTER_RATING, FILTER_ALPHABETIC,
+    GET_BY_NAME, FILTER_GENRES,
+     FILTER_RATING, FILTER_ALPHABETIC,
     GET_GAMES_API,
     GET_GAMES_CREATE,
     RESET_FILTERS,
@@ -157,9 +158,9 @@ const reducer = (state = initialState, {type,payload}) => {
             let order = (data,typeOrder) => {
                 return data.sort( (a,b) => {
                     if(typeOrder === "minimun") {
-                        return Number(a.weight.split("-")[1]) - Number(b.weight.split(" - ")[1]) 
+                        return Number(a.rating.split("-")[1]) - Number(b.rating.split(" - ")[1]) 
                     } else {
-                        return Number(b.weight.split("-")[1]) - Number(a.weight.split(" - ")[1])
+                        return Number(b.rating.split("-")[1]) - Number(a.rating.split(" - ")[1])
                     }
                 })
             }

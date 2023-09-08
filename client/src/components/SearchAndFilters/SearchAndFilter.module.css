@@ -1,12 +1,13 @@
 .body{
-text-align: center;
- display: inline-block;
 
+ display: inline;
+ grid-template-columns: 10fr auto 2fr;
+ color:aliceblue
 }
 
 .nam{
     
-    font-size:medium;
+    font-size: 10cap;
     
 }
 

@@ -177,6 +177,7 @@ const gamesForApi = {
           name:  data.name,
           released:  data.released,
          rating: data.rating,
+         rating_top:data.rating_top,
           background_image:  data.background_image,
          platform: data.platforms.map((platform) => platform.platform.name),
           description:data.description,

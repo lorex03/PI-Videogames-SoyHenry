@@ -85,8 +85,8 @@ export const filterGenres = (genre) => {
 }
 
 // filtrar por weight (rating)
-export const filterRating = (typeWeight) => {
-    return { type: FILTER_RATING, payload: typeWeight}
+export const filterRating = (typerating) => {
+    return { type: FILTER_RATING, payload: typerating}
 }
 
 export const filterAlphabetic = (typeAlphabetic) => {

@@ -40,6 +40,7 @@ const Cards = ({games}) => {
   return (
     <div>
        <div className={style.cards}>
+            
             {
 
            gamesPaginate.map( (game,index) => {
