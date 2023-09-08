@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import style from "../SearchAndFilters/SearchAndFilter.module.css"
-import { filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
+import { getPlatform,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
 
 const SearchAndFilter = () => {
 
@@ -8,6 +8,8 @@ const SearchAndFilter = () => {
 
     const dispatch = useDispatch();
 
+
+    const platforms = useSelector( state => state.platforms );
     const genres = useSelector( state => state.genres );
     const display = useSelector( state => state.displayState );
 
@@ -21,6 +23,17 @@ const SearchAndFilter = () => {
             dispatch(filterGenres(genresSearch));
             dispatch(setCurrentPage(1));
         }
+
+
+        if(e.currentTarget.name === "platforms") {
+            const platformsSearch = e.target.value;
+            //console.log("buscar:", temperamentSearch);
+            dispatch(getPlatform(platformsSearch));
+            dispatch(setCurrentPage(1));
+        }
+
+
+
         if(e.currentTarget.name === "rating") {
             const ratingSearch = e.target.value;
             //console.log(weightSearch);
@@ -49,6 +62,7 @@ const SearchAndFilter = () => {
             dispatch(resetFilterAll());
             dispatch(setCurrentPage(1));
         }
+
         if(e.target.value === "api") {
             //Este dispatch es para actualizar el estado de display y poder renderizarlos en home
             dispatch(displayState({
@@ -106,8 +120,15 @@ return (
                         }
                     </select>
                 
-
-
+                    <p>Platforms:  </p>
+                    <select onChange={handleClick} name="platforms">
+{
+                            Array.isArray(platforms) && platforms?.map( (genres, index) => {
+                                return <option value={platforms.name} key={index}>{platforms.name}</option>
+                            }) 
+                        }
+                    </select>
+                
 
       
 

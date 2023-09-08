@@ -32,7 +32,7 @@ const mapPlatform = (array) => {
    return array.results.map ((platform) =>{
    
    return{
-   
+   id:platform.id,
    name:platform.name
    }
    

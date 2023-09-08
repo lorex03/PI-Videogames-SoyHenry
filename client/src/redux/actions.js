@@ -4,14 +4,15 @@ import  {
     DISPLAY_STATE, 
     GET_GAMES,
     GET_GAMES_BY_ID,
-    GET_GENRES,
+    GET_GENRES, GET_PLATFORMS,
     SET_CURRENT_PAGE,
     GET_BY_NAME, FILTER_GENRES, FILTER_RATING, FILTER_ALPHABETIC,
     GET_GAMES_API,
     GET_GAMES_CREATE,
     RESET_FILTERS,
     REST_BY_ID,
-    CREATE_GAME
+    CREATE_GAME,
+   
 
 } from "./actions-type"
 
@@ -66,6 +67,17 @@ export const getGenres = () => {
         try {
             const { data } = await axios.get("http://localhost:3001/genres");
             dispatch({type: GET_GENRES, payload: data })
+        } catch (error) {
+            alert("error: " + error.response.data.error);
+        }
+    }
+}
+
+export const getPlatform = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get("http://localhost:3001/platforms");
+            dispatch({type: GET_PLATFORMS, payload: data })
         } catch (error) {
             alert("error: " + error.response.data.error);
         }

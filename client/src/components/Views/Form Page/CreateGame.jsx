@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateGame = () => {
     const dispatch = useDispatch();
     const genres = useSelector( state => state.genres );
+    const platforms = useSelector( state => state.platforms );
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const CreateGame = () => {
      released: '',
      imagen: '',
      rating: 0,
-     platform: [],
+     platforms: [],
      description: '',
      genres: [],
                    
@@ -69,7 +70,7 @@ const CreateGame = () => {
                 imagen: formData.imagen,
                 rating: formData.rating.toString(),
                 genres: formData.genres,
-                platform:formData.platform,
+                platforms:formData.platforms,
                 description:formData.description,
                 released:  formData.released
             } 
@@ -86,13 +87,7 @@ const CreateGame = () => {
         
     }
    
-    const handlePlatformChange = (event) => {
-        const selectedOptions = Array.from(
-          event.target.selectedOptions,
-          (option) => option.value
-        )
-        setFormData({ ...formData, platforms: selectedOptions })
-      }
+   
    
     return(
     <div className={style.body}>
@@ -121,68 +116,33 @@ const CreateGame = () => {
                             })
                             : null
                         }
-     <label htmlFor="platforms">Platforms:</label>
-        <select
-          name="platforms"
-          multiple
-          value={formData.platforms}
-          onChange={handlePlatformChange}
-          required
-        >
-          <option value="Xbox One">Xbox One</option>
-          <option value="Xbox 360">Xbox 360</option>
-          <option value="Xbox">Xbox</option>
-          <option value="PlayStation 5">PlayStation 5</option>
-          <option value="PlayStation 4">PlayStation 4</option>
-          <option value="PlayStation 3">PlayStation 3</option>
-          <option value="PlayStation 2">PlayStation 2</option>
-          <option value="PlayStation">PlayStation</option>
-          <option value="Nintendo Switch">Nintendo Switch</option>
-          <option value="Nintendo 3DS">Nintendo 3DS</option>
-          <option value="Nintendo DS">Nintendo DS</option>
-          <option value="Nintendo 64">Nintendo 64</option>
-          <option value="Game Boy Advance">Game Boy Advance</option>
-          <option value="Game Boy Color">Game Boy Color</option>
-          <option value="Game Boy">Game Boy</option>
-          <option value="GameCube">GameCube</option>
-          <option value="SNES">SNES</option>
-          <option value="NES">NES</option>
-          <option value="PC">PC</option>
-          <option value="Linux">Linux</option>
-          <option value="iOS">iOS</option>
-          <option value="PS Vita">PS Vita</option>
-          <option value="PSP">PSP</option>
-          <option value="Wii U">Wii U</option>
-          <option value="Classic Macintosh">Classic Macintosh</option>
-          <option value="Apple II">Apple II</option>
-          <option value="Commodore / Amiga">Commodore / Amiga</option>
-          <option value="Atari 7800">Atari 7800</option>
-          <option value="Atari 5200">Atari 5200</option>
-          <option value="Atari 2600">Atari 2600</option>
-          <option value="Atari Flashback">Atari Flashback</option>
-          <option value="Atari 8-bit">Atari 8-bit</option>
-          <option value="Atari ST">Atari ST</option>
-          <option value="Atari Lynx">Atari Lynx</option>
-          <option value="Atari XEGS">Atari XEGS</option>
-          <option value="Genesis">Genesis</option>
-          <option value="SEGA CD">SEGA CD</option>
-          <option value="SEGA 32X">SEGA 32X</option>
-          <option value="SEGA Master System">SEGA Master System</option>
-          <option value="Dreamcast">Dreamcast</option>
-          <option value="3DO">3DO</option>
-          <option value="Jaguar">Jaguar</option>
-          <option value="Game Gear">Game Gear</option>
-          <option value="Neo Geo">Neo Geo</option>
-        </select>
-         <span>{errors.platforms && errors.platforms}</span>
 
+
+
+
+   <label><h2> Platforms</h2> </label>
+                    <select name="" id="" multiple>
+                        {
+                           Array.isArray(platforms) && platforms?.map( (platforms, index) => {
+                                return <option value={platforms.id} key={index} name="platforms" onClick={handleOptionsClick}>{platforms.name}</option>
+                            })
+                        }
+                    </select>
+                    <ul>
+                        {   
+                            (Array.isArray(platforms)) ?
+                            formData.platforms.map( id => {
+                               return platforms?.map( (platforms, index) =>  (platforms.id === id) ? <li key={index}>*{platforms.name}</li> : null)
+                            })
+                            : null
+                        }
 
 
 
 
 
   </ul>
-  
+  </ul>
 <label htmlFor="">Rating</label>
 
                     <input type="number" name="rating" className="number" value={formData.rating} onChange={handleChangle}/>
