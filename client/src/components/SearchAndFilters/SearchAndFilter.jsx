@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import style from "../SearchAndFilters/SearchAndFilter.module.css"
-import { getPlatform,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
+import { getPlatforms,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
 
 const SearchAndFilter = () => {
 
@@ -28,7 +28,7 @@ const SearchAndFilter = () => {
         if(e.currentTarget.name === "platforms") {
             const platformsSearch = e.target.value;
             //console.log("buscar:", temperamentSearch);
-            dispatch(getPlatform(platformsSearch));
+            dispatch(getPlatforms(platformsSearch));
             dispatch(setCurrentPage(1));
         }
 

@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import SearchAndFilter from './components/SearchAndFilters/SearchAndFilter'
 //import SearchAndFilter from './components/SearchAndFilters/SearchAndFilter';
 //IMPORTO MIS PAGINAS PRINCIPALES Q MOSTRARE EN MI FRONTEND
-import {getGames,getGenres,setCurrentPage} from './redux/actions'
+import {getGames,getGenres,getPlatforms,setCurrentPage} from './redux/actions'
 
 function App() {
 
@@ -28,8 +28,12 @@ function App() {
     //! Me va a traer todos los perros siempre y cuando sea la url "/home"
     if(location.pathname === "/home" || location.pathname === "/createGame") {
       dispatch(getGenres());
+      dispatch(getPlatforms());
       dispatch(setCurrentPage(1));
     }
+ 
+    
+
     if(location.pathname === "/home") {
         dispatch(getGames()); 
         dispatch(setCurrentPage(1));       
