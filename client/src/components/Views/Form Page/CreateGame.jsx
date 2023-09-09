@@ -39,7 +39,7 @@ const CreateGame = () => {
         }))
     }
 
-    const handleOptionsClick = (e) => {
+    const handleOptionsGenClick = (e) => {
         const genreId = e.target.value;
         const upGenres = formData.genres || [];
         if(!upGenres.includes(Number(genreId))) {
@@ -51,6 +51,24 @@ const CreateGame = () => {
         }
     }
    
+
+    const handleOptionPlatClick = (e) => {
+        const platformId = e.target.value;
+        const upPlatforms = formData.platforms || [];
+        if(!upPlatforms.includes(Number(platformId))) {
+            let result = [...upPlatforms,Number(platformId)];
+            setFormData({
+                ...formData,
+                platforms: result,
+            })
+        }
+    }
+
+
+
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -104,7 +122,7 @@ const CreateGame = () => {
                     <select name="" id="" multiple>
                         {
                            Array.isArray(genres) && genres?.map( (genres, index) => {
-                                return <option value={genres.id} key={index} name="genres" onClick={handleOptionsClick}>{genres.name}</option>
+                                return <option value={genres.id} key={index} name="genres" onClick={handleOptionsGenClick}>{genres.name}</option>
                             })
                         }
                     </select>
@@ -124,7 +142,7 @@ const CreateGame = () => {
                     <select name="" id="" multiple>
                         {
                            Array.isArray(platforms) && platforms?.map( (platforms, index) => {
-                                return <option value={platforms.id} key={index} name="platforms" onClick={handleOptionsClick}>{platforms.name}</option>
+                                return <option value={platforms.id} key={index} name="platforms" onClick={handleOptionPlatClick}>{platforms.name}</option>
                             })
                         }
                     </select>
