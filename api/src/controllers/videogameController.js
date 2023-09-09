@@ -198,15 +198,14 @@ return gamesForApi
        
   const createVideoGames= async(req,res) => {
     try {
-      const{ name, released,rating,background_image,description,genres}= req.body;
-      if(!name || !released || !rating || !background_image ||  !genres || !description )throw new Error ("Falta por llenar datos");
+      const{ name, released,rating,background_image,description,genres,platforms}= req.body;
+      if(!name || !released || !rating || !background_image ||  !genres || !description || ! platforms )throw new Error ("Falta por llenar datos");
  const newVideogame = await Videogame.create({
     name,
      released,
      rating,
-   //  rating_top,
      background_image,
-    // platform,
+     platforms,
      description,
      genres
 })

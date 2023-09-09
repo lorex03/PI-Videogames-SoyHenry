@@ -15,11 +15,18 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
  
-    released: {
-      type: DataTypes.STRING,
+background_image: {
+      
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+ 
+      platforms: {
+      type:DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
-    },
-    rating: {
+    },  
+    
+     rating: {
       type: DataTypes.FLOAT,
       allowNull: true,
       validate: {
@@ -27,31 +34,27 @@ module.exports = (sequelize) => {
       },
     },
 
-    rating_top:{
-type: DataTypes.INTEGER,
-allowNull:true
-  },
+
+ released: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+
     description: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
 
 
-    background_image: {
-      
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
+    
     //  type: DataTypes.STRING,
      // allowNull: true,
       //validate: {
        // isUrl: true,
       //}, 
   
-    platforms: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+   
    created:{
 type:DataTypes.BOOLEAN,
 defaultValue:true,
