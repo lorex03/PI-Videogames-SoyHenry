@@ -1,7 +1,7 @@
 .body{
 
- display: inline;
- grid-template-columns: 10fr auto 2fr;
+ display: grid;
+ grid-template-columns: 1fr auto 1fr 1fr 1fr 1fr;
  color:aliceblue
 }
 

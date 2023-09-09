@@ -27,7 +27,7 @@ const SearchAndFilter = () => {
 
         if(e.currentTarget.name === "platforms") {
             const platformsSearch = e.target.value;
-            //console.log("buscar:", temperamentSearch);
+           console.log(platformsSearch);
             dispatch(filterPlatforms(platformsSearch));
             dispatch(setCurrentPage(1));
         }
@@ -146,6 +146,7 @@ return (
 <div className={style.nam}>
 
 <input type="search" onKeyUp={handleEnter} placeholder="Search by name"/>
+
 </div>
 
 <p>Seleccione:</p>

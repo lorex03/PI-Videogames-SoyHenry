@@ -49,7 +49,7 @@ const Cards = ({games}) => {
                             id={game.id}
                             name={game.name}
                             background_image={game.background_image}
-                            platform={game.platform}
+                            platforms={game.platforms}
                             description={game.description}
                             released={game.released}
                             rating={game.rating}

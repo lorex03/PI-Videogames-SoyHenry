@@ -18,7 +18,7 @@ let result;
     //!  me traigo los filtros para ver su estado
 
     const filterGenres = useSelector( state => state.filterGenres );
-    
+    const filterPlatforms = useSelector( state => state.filterGenres );
     const filterRating = useSelector( state => state.filterRating );
     
     const filterAlphabetic = useSelector( state => state.filterAlphabetic );
@@ -35,26 +35,46 @@ let result;
 
   if(display.all) {
       if(filterGenres.state) {
-          if(filterGenres.data.length === 0) alert("I don't find by temperaments")
+          if(filterGenres.data.length === 0) alert("I don't find by genres")
           result = filterGenres.data;
 
+      } 
+       if(filterPlatforms.state) {
+        if(filterPlatforms.data.length === 0) alert("I don't find by platforms")
+        result = filterPlatforms.data;
 
-      } else if (filterRating.state) {
+    } 
+      else if (filterRating.state) {
           result = filterRating.data;
 
 
       } else if (filterAlphabetic.state) {
           result = filterAlphabetic.data;
-      } else
+      } 
+      
+     
+
+      else
       
       {
           result = gamesALL;
       }
   } 
+
+
+
   if(display.api) {
       if(filterGenres.state) {
           if(filterGenres.data.length === 0) alert("I don't find by temperaments")
           result = filterGenres.data;
+
+          if(filterPlatforms.state) {
+            if(filterPlatforms.data.length === 0) alert("I don't find by platforms")
+            result = filterPlatforms.data;
+    
+        } 
+
+
 
 
       } else if (filterRating.state) { 
@@ -65,16 +85,26 @@ let result;
           result = filterAlphabetic.data;
       
       
-        } else {
+        }    
+
+
+        else {
           result = gamesApi;
       }
   } 
+
+
+
   if(display.create) {
       if(filterGenres.state) {
-          if(filterGenres.data.length === 0) alert("I don't find by temperaments")
+          if(filterGenres.data.length === 0) alert("I don't find by genres")
           result = filterGenres.data;
 
-
+          if(filterPlatforms.state) {
+            if(filterPlatforms.data.length === 0) alert("I don't find by platforms")
+            result = filterPlatforms.data;
+    
+        } 
 
       } else if (filterRating.state) { 
           result = filterRating.data;
@@ -82,15 +112,27 @@ let result;
       
       else if (filterAlphabetic.state) {
           result = filterAlphabetic.data;
-      } else {
+      } 
+      
+      else if (filterPlatforms.state) {
+        result = filterPlatforms.data;
+
+    }
+      
+      else {
           result = gamesCreate;
       }
   }
+
+
+
 
   if(gamesByName.state) {
     if(gamesByName.data.length === 0) alert("I don't find by name")
     result = gamesByName.data;
 }
+
+
 
 return (
     <div className={style.body}>

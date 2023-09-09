@@ -11,5 +11,12 @@ grid-template-columns: 100fr auto 10fr;
 .log{
     display: grid;
     grid-template-columns: 1000fr auto 10fr;
-       
+   color: aliceblue;    
+}
+
+p{
+  margin: 10px;
+
+  border-radius: 0cm;
+    color: aliceblue;
 }
