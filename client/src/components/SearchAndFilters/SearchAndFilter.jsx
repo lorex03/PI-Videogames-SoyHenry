@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import style from "../SearchAndFilters/SearchAndFilter.module.css"
-import { getPlatforms,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
+import { filterPlatforms,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
 
 const SearchAndFilter = () => {
 
@@ -28,7 +28,7 @@ const SearchAndFilter = () => {
         if(e.currentTarget.name === "platforms") {
             const platformsSearch = e.target.value;
             //console.log("buscar:", temperamentSearch);
-            dispatch(getPlatforms(platformsSearch));
+            dispatch(filterPlatforms(platformsSearch));
             dispatch(setCurrentPage(1));
         }
 
@@ -123,7 +123,7 @@ return (
                     <p>Platforms:  </p>
                     <select onChange={handleClick} name="platforms">
 {
-                            Array.isArray(platforms) && platforms?.map( (genres, index) => {
+                            Array.isArray(platforms) && platforms?.map( (platforms, index) => {
                                 return <option value={platforms.name} key={index}>{platforms.name}</option>
                             }) 
                         }

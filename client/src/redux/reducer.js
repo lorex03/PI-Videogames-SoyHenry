@@ -12,7 +12,7 @@ import {
     GET_GAMES_BY_ID,
     CREATE_GAME,
     GET_PLATFORMS,
-
+    FILTER_PLATFORMS
 } from "./actions-type"
 
 
@@ -36,6 +36,11 @@ const initialState = {
     },
 
     filterGenres: {
+        state: false,
+        data: []
+    },
+
+    filterPlatforms: {
         state: false,
         data: []
     },
@@ -159,6 +164,12 @@ const reducer = (state = initialState, {type,payload}) => {
                     data: []
          
                 },
+
+                filterPlatforms: {
+                    state: false,
+                    data: []
+         
+                },
          
             }
         
@@ -191,7 +202,7 @@ const reducer = (state = initialState, {type,payload}) => {
 
             return {
                 ...state,
-                dogsByName: {
+                gamesByName: {
                     state: false,
                     data: []
                 },
@@ -207,6 +218,13 @@ const reducer = (state = initialState, {type,payload}) => {
                     state: false,
                     data: []
                 },
+            
+                filterPlatforms: {
+                    state: false,
+                    data: []
+         
+                },
+            
             }
         case FILTER_ALPHABETIC:
             let resultAlphabetic;
@@ -251,6 +269,13 @@ const reducer = (state = initialState, {type,payload}) => {
                     state: true,
                     data: resultAlphabetic
                 },
+
+                filterPlatforms: {
+                    state: false,
+                    data: []
+         
+                },
+
             }
         case DISPLAY_STATE:
             return {
@@ -299,6 +324,15 @@ const reducer = (state = initialState, {type,payload}) => {
                     state: false,
                     data: []
                 },
+             
+                filterPlatforms: {
+                    state: false,
+                    data: []
+         
+                },
+
+
+
             }
             case REST_BY_ID: 
             return {

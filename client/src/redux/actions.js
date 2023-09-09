@@ -22,7 +22,7 @@ import  {
     RESET_FILTERS,
     REST_BY_ID,
     CREATE_GAME,
-   
+    FILTER_PLATFORMS
 
 } from "./actions-type"
 
@@ -105,6 +105,11 @@ export const setCurrentPage = (number) => {
 export const filterGenres = (genre) => {
     return { type: FILTER_GENRES, payload: genre}
 }
+export const filterPlatforms = (genre) => {
+    return { type: FILTER_PLATFORMS, payload: genre}
+}
+
+
 
 // filtrar por weight (rating)
 export const filterRating = (typerating) => {
