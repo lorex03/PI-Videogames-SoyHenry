@@ -5,12 +5,12 @@ const infoCleaner=(arr) =>{
     return arr.results.map( (game) => {
     return {
        id: game.id,
-        name:game.name, //.toLowerCase(),
+        name:game.name,
         released: game.released,
         rating: game.rating,
         rating_top:game.rating_top,
         background_image: game.background_image,
-        platform: game.platforms.map((platform) => platform.platform.name),
+        platforms: game.platforms.map((platform) => platform.platform.name),
         genres: game.genres.map((genre) => genre.name)
     }
     })

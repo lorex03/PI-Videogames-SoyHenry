@@ -113,10 +113,6 @@ return allVideogames;
 
 
  // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
-
- 
-
-
  const searchGameByName = async (name) => {
   const names = name.toLowerCase();
   const infoApi=(
@@ -125,12 +121,12 @@ return allVideogames;
   const gamesApi=  infoCleaner(infoApi);
   
   
-  const gameFiltered= gamesApi.filter((game) => game.name === name);
+  const gameFiltered= gamesApi.filter((game) => game.name.toLowerCase() === names);
 
   const VideogameDb=await Videogame.findAll({
     where: {
       name: {
-          [Op.iLike]: `%${name}%`,
+          [Op.iLike]: `%${names}%`,
       },
   },
   include: [
@@ -147,12 +143,10 @@ return allVideogames;
    
   
   return [...gameFiltered,...VideogameDb]
-  
-  
-   }
-  
+}
+ 
 
-  
+ 
 
 const getByIdGame = async(id) => {
   if(!id) {

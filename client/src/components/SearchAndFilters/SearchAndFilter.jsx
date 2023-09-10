@@ -93,7 +93,7 @@ const SearchAndFilter = () => {
 
     const handleEnter = (e) => {
         if(e.key === "Enter") {
-            let name = e.target.value;
+            let names = e.target.value;
              //Este dispatch es para actualizar el estado de display y poder renderizarlos en home
             /*  dispatch(displayState({
                 all: false,
@@ -103,7 +103,7 @@ const SearchAndFilter = () => {
             // Este dispatch me permite resetear los filtros por si cambian de opción
             dispatch(resetFilterAll());
             dispatch(setCurrentPage(1));
-            dispatch(getGamesByName(name));
+            dispatch(getGamesByName(names));
             e.target.value = "";
          }
     }

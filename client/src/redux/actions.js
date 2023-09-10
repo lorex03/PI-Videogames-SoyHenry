@@ -45,6 +45,7 @@ export const getGames = () => {
 };
 
 export const getGamesByName = (name) => {
+  
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`http://localhost:3001/videogames?name=${name}`);
