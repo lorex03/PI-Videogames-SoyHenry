@@ -181,9 +181,9 @@ const reducer = (state = initialState, {type,payload}) => {
             let order = (data,typeOrder) => {
                 return data.sort( (a,b) => {
                     if(typeOrder === "minimun") {
-                        return Number(a.rating.split("-")[1]) - Number(b.rating.split(" - ")[1]) 
+                        return Number(a.rating) - Number(b.rating) 
                     } else {
-                        return Number(b.rating.split("-")[1]) - Number(a.rating.split(" - ")[1])
+                        return Number(b.rating) - Number(a.rating)
                     }
                 })
             }

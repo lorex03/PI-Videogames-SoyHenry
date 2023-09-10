@@ -35,14 +35,14 @@ const getGameByIdHandler=async(req,res) =>{
   
 const postCreateHandler= async(req,res) =>{
     try { 
-      const{ name, released,rating,background_image,genres,platforms}= req.body;
+     const{ name, released,rating,background_image,genres,platforms}= req.body;
 
    
     const newGame = await createVideoGames( name, released,rating,background_image,genres,platforms);
-    res.status(201).json(newGame)
+   return res.status(201).json(newGame)
     }
      catch(error){
-    res.status(500).json({error:error.message})
+   return res.status(500).json({error:error.message})
     } }
 
 

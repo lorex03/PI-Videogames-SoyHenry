@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentPage } from "../../redux/actions";
 import style from "../CardsContainer/Cards.module.css"
 
-
 const Cards = ({games}) => {
   const dispatch = useDispatch();
 

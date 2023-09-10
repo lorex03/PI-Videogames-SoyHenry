@@ -20,7 +20,6 @@ const mapGenre = (array) => {
 return array.results.map ((genre) =>{
 
 return{
-
 name:genre.name
 }
 

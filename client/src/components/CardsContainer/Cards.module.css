@@ -7,5 +7,7 @@
            height: 300px;
            margin-right: 20px;
            scroll-snap-align: start;
+           object-fit:cover;
+           grid-template-columns: 1fr 1 fr ;
      }
    

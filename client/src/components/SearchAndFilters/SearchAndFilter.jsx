@@ -130,6 +130,16 @@ return (
                     </select>
                 
 
+                    <p>Rating</p>
+                    <select onChange={handleClick} name="rating">
+                
+                    <option value="minimun">Minimun</option>
+                
+                    <option value="maximum">Maximum</option>
+                
+                    </select>
+
+
       
 
 <p>Alphabetic</p>

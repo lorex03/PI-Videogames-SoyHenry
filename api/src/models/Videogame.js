@@ -26,18 +26,15 @@ background_image: {
       allowNull: true,
     },  
     
-     rating: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-      validate: {
-        isFloat: true,
-      },
+    rating: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
     },
 
 
- released: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    released: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
     },
 
 
