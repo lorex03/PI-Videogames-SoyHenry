@@ -3,26 +3,22 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('genre', {
+  sequelize.define('Genre', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-     autoIncrement: true,
+      autoIncrement: true,
       primaryKey: true,
-    },
-
-name: {
+  },
+  name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-  created: {
-    type:DataTypes.BOOLEAN,
-    defaultValue:true,
-    
-       }
-       
-  },
+  }
+},
 
 
-  {timestamps: false});
+
+{
+  timestamps: false,
+});
 };

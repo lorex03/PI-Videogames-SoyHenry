@@ -212,6 +212,7 @@ return gamesForApi
      genres
 })
 newVideogame.addGenres(genres)
+//newVideogame.addPlatforms(platforms)
 return res.status(200).json(newVideogame);
 
 

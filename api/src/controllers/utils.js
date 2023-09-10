@@ -5,7 +5,7 @@ const infoCleaner=(arr) =>{
     return arr.results.map( (game) => {
     return {
        id: game.id,
-        name: game.name,
+        name:game.name, //.toLowerCase(),
         released: game.released,
         rating: game.rating,
         rating_top:game.rating_top,

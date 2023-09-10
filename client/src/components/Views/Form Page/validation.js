@@ -22,13 +22,13 @@ export const validation = (data) => {
     //objeto vacio , para ver en caso de errores
     let errors = {};
 
-    if(!nameRegex.test(data.name)) errors.name = "Is not a name validation";
+   if(!nameRegex.test(data.name)) errors.name = "Is not a name validation";
 
 
-    if(!imageRegex.test(data.imagen)) errors.imagen = "Is not a url image";
+    if(!imageRegex.test(data.background_image)) errors.background_image = "Is not a url image";
 
 
-    if(!numberValidationrating.test(data.rating) || data.rating <= 0 || data.rating > 5) errors.rating = "cannot be a floating number, and year cannot be higher than 10 and less 1"
+    if(!numberValidationrating.test(data.rating) || data.rating <= 0 || data.rating > 5) errors.rating = "cannot be a floating number, and year cannot be higher than 5 and less 1"
 
     return errors;
 

@@ -3,6 +3,7 @@ import style from "../Form Page/Form.module.css"
 import { validation } from "./validation";
 import { useState } from "react";
 import {  useSelector, useDispatch } from 'react-redux';
+
 import { createGame, displayState } from "../../../redux/actions";
 
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +17,7 @@ const CreateGame = () => {
     const [formData, setFormData] = useState({
       name: '',
      released: '',
-     imagen: '',
+     background_image: '',
      rating: 0,
      platforms: [],
      description: '',
@@ -75,26 +76,28 @@ const CreateGame = () => {
         if(errors.name) {
             alert(errors.name);
         }
-        if(errors.imagen) {
-            alert(errors.imagen);
+       //background_image
+        if(errors.background_image) {
+            alert(errors.background_image);
         }
+
         if(errors.rating) {
             alert(errors.rating)
         }
-
-        if(!errors.name && !errors.imagen && !errors.height && !errors.rating) {
+//background_image
+        if(!errors.name && !errors.background_image && !errors.rating) {
             const game = {
-                name: formData.name,
-                imagen: formData.imagen,
-                rating: formData.rating.toString(),
+                name:  formData.name,
+                background_image: formData.background_image,//background_image
+                rating: formData.rating,
                 genres: formData.genres,
                 platforms:formData.platforms,
                 description:formData.description,
-                released:  formData.released
-            } 
+               released:  formData.released
+           } 
+            const gameJson = JSON.stringify(game);
    
-   
-            dispatch(createGame(game)); 
+            dispatch(createGame(gameJson)); 
             dispatch(displayState({
                 all: true,
                 api: false,
@@ -105,16 +108,15 @@ const CreateGame = () => {
         
     }
    
-   
-   
+   //background_image
     return(
     <div className={style.body}>
     
     <div>
     <h1>CREATE YOUR VIDEOGAME</h1>
-                <form action="" onSubmit={handleSubmit}>
+                <form action="" onSubmit={handleSubmit}>             
                     <input type="text" name="name" placeholder="Game name" value={formData.name} onChange={handleChangle}/>
-                    <input type="text" name="imagen" placeholder="image url" value={formData.imagen} onChange={handleChangle}/>
+                    <input type="text" name="background_image" placeholder="image url" value={formData.background_image} onChange={handleChangle}/>
                     <br />
                    
                    
@@ -194,7 +196,7 @@ const CreateGame = () => {
   <div>
 
   {
-                        (errors.name || errors.name || errors.imagen  || errors.rating) 
+                        (errors.name || errors.name || errors.background_image  || errors.rating) 
                                         ?<div>
                                         </div>                                             
                                         :null
@@ -203,7 +205,7 @@ const CreateGame = () => {
                         (errors.name) ? <span> <b>Name:</b> {errors.name}</span> : null
                     }
                     {
-                        (errors.imagen) ? <span>  <b>Image:</b> {errors.imagen}</span> : null
+                        (errors.background_image) ? <span>  <b>Image:</b> {errors.background_image}</span> : null
                     }
                 
                     {
@@ -223,7 +225,7 @@ const CreateGame = () => {
         
     )
     }
-    
+    //background_image
     export default CreateGame;
 
 

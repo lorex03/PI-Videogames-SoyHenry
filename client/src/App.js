@@ -23,9 +23,9 @@ function App() {
   const login = () => {
     navigate("/home");
   }
-  //! Usamos el useEffect para que cada vez que se recargue la pagina, me traiga todos los perros de la api con getDogs
+  //! Usamos el useEffect para que cada vez que se recargue la pagina, me traiga todos los perros de la api con getGames
   useEffect( () => {
-    //! Me va a traer todos los perros siempre y cuando sea la url "/home"
+    //! Me va a traer todos los videojuegos siempre y cuando sea la url "/home"
     if(location.pathname === "/home" || location.pathname === "/createGame") {
       dispatch(getGenres());
       dispatch(getPlatforms());
