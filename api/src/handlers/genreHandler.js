@@ -1,25 +1,16 @@
-const {getGenres} = require ("../controllers/getGenreController")
+const  {getGenres} = require("../controllers/getGenreController");
 
-
-
-const genreHandler=async(req,res) =>{
-const{genres}= req.body;
-try {
-  const AllGenres = await getGenres(genres);
-   
-   res.status(201).json(AllGenres)
+const genresHandler = async (req, res) => {
+  try {
+    const { name } = req.body;
+    const newGenre = await getGenres(name);
+    res.status(201).json(newGenre);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-    
-     catch(error){
-  res.status(400).json({error:error.message})
-   } }
+};
 
-
-
-
-module.exports=
- {genreHandler}
-
+module.exports = {genresHandler};
 ////Por genero: "https://api.rawg.io/api/genres"
 //--------------------📍 GET | /genres----------------------------------------------------
 //Obtiene un arreglo con todos los géneros existentes de la API.

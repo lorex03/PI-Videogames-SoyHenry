@@ -15,17 +15,16 @@ const infoCleaner=(arr) =>{
     }
     })
    }
+   const mapGenre = (array) => {
+      return array.results.map((genre) => {
+        return {
+          id_api: genre.GenreId,
+          name: genre.name,
+        };
+      });
+    };
 
-const mapGenre = (array) => {
-return array.results.map ((genre) =>{
 
-return{
-name:genre.name
-}
-
-})
-
-}
 
 const mapPlatform = (array) => {
    return array.results.map ((platform) =>{

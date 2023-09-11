@@ -3,32 +3,33 @@ const axios = require("axios");
 const {API_KEY} =process.env
 const {mapGenre} =require('./utils')
 
- 
-const getGenres = async () => {
- 
-    const ApiGenre= (
-  await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`))
-  .data
-  
-  const genreApi=mapGenre(ApiGenre);
 
- const genreApiDb= await Genre.bulkCreate(genreApi)
 
-  return genreApiDb;
-    }
-  
+
+  const getGenres = async () => {
+    const { data } = await axios.get(
+      `https://api.rawg.io/api/genres?key=${API_KEY}`
+    );
+ 
+  const genres = data.results.map((result) => {
+    const { id, name } = result;
+    return { id, name };
+  });
+
+
+  for (let i = 0; i < genres.length; i++) {
+    await Genre.findOrCreate({
+      where: { id: genres[i].id },
+      defaults: { name: genres[i].name },
+    });
+  }
+  return genres;
+};
 
 
 
 
 module.exports={getGenres}
-
-
-
-
-
-
-
 
 
 
@@ -45,5 +46,3 @@ module.exports={getGenres}
 //Estos deben ser obtenidos de la API (se evaluará que no haya hardcodeo).
 //_ Luego de obtenerlos de la API, deben ser guardados en la base de datos para su posterior consumo desde allí.
 //______________                   EJEEMPLO_____________________________________________________________
-
-

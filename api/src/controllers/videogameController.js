@@ -154,7 +154,7 @@ const getByIdGame = async(id) => {
   const gameIdDB = await Videogame.findByPk(id, {
          include: {   
          model: Genre,
-           //  attributes: ['name'],
+            // attributes: ['name'],
             through: {
                  attributes: [],
              }

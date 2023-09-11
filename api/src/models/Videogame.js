@@ -52,11 +52,11 @@ background_image: {
       //}, 
   
    
-   created:{
-type:DataTypes.BOOLEAN,
-defaultValue:true,
+   //created:{
+//type:DataTypes.BOOLEAN,
+//defaultValue:true,
 
-   }
+  // }
 
   },{timestamps:false});
 };
