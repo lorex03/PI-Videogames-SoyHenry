@@ -35,6 +35,7 @@ const Cards = ({games}) => {
 
   const handleNextPg = () => {
       if(currentPage < allPages) dispatch(setCurrentPage(currentPage + 1));
+
   }
   return (
     <div>
@@ -58,13 +59,16 @@ const Cards = ({games}) => {
                     )
                 })
             }
-        </div>
-        <div className={style.button}>
+        
+
+       
+    </div>
+     <div className={style.button}>
             <button onClick={handlePreviusPg} disabled={currentPage === 1}>previus</button>
             <label>{currentPage}</label>
             <button onClick={handleNextPg} disabled={currentPage === allPages}>Next</button>
         </div>
-    </div>
+        </div>
 )
     
   

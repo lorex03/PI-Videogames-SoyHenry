@@ -1,11 +1,32 @@
 .cards {
-      display:flex;
-              max-width: 100px;
-              max-height: 100px;
-              
+      display:grid;
+      min-width: 70%;
+      
+              max-width: 70%;
+              min-height: 70%;
+              max-height: 70%;
+             
               object-fit:cover;
-              grid-template-columns: repeat(4,1fr);
-              grid-gap: 20px;
-        }
-   
+              grid-template-columns: repeat(5,1fr);
+       
+             padding-left: 50px;
+             padding-right: 50px;
+             animation-name: papa;
+             animation-iteration-count: 1;
+           animation-delay: 4s;
+           animation-duration: 5s;
+}
+
+@keyframes papa{
+  0%{
+transform:rotate(360deg);
+
+  }
+}
+
+        
+ .button{
+      margin-top: 300px;
+ }
+  
    

@@ -1,8 +1,10 @@
 .gen{
-font: size 10px;
+font-size: 20px;
 display:grid;
 background-position: 0cqmax;
 
 place-items:initial;
 color:aliceblue
 }
+
+

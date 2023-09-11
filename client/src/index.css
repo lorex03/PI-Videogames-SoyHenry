@@ -5,10 +5,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./components/Views/utils/desktop-wallpaper-tales-of-zestiria-the-x-12-tales-of-zestiria-the-x.jpg");
+ 
   background-size: cover;
   max-width: 100%;
   max-height: 100%;
+  animation-name: lore;
+animation-duration: 10s;
+animation-iteration-count: 1;
+
 }
+  
+ 
+
+@keyframes lore{
+  
+    0%{
+  transform:scale(2,2);
+  
+    }
+  }
+
  
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

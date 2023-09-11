@@ -14,11 +14,11 @@ const Card = ({id, background_image, name,genres,rating}) => {
     }
 
         return (
-            <div className={style.img}>
+            <div className={style.td}>
        <img src ={background_image}/>
 
                 <div>
-                    <div className={style.cardcontainer}>
+                    <div >
            
                     </div>
 
