@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import style from "../SearchAndFilters/SearchAndFilter.module.css"
-import { filterPlatforms,filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
+import { filterGenres, filterRating, displayState, getGamesApi, getGamesCreate, resetFilterAll, filterAlphabetic, setCurrentPage, getGamesByName } from "../../redux/actions";
 
 const SearchAndFilter = () => {
 
@@ -9,7 +9,7 @@ const SearchAndFilter = () => {
     const dispatch = useDispatch();
 
 
-    const platforms = useSelector( state => state.platforms );
+    //const platforms = useSelector( state => state.platforms );
     const genres = useSelector( state => state.genres );
     const display = useSelector( state => state.displayState );
 
@@ -25,12 +25,15 @@ const SearchAndFilter = () => {
         }
 
 
-        if(e.currentTarget.name === "platforms") {
-            const platformsSearch = e.target.value;
-           console.log(platformsSearch);
-            dispatch(filterPlatforms(platformsSearch));
-            dispatch(setCurrentPage(1));
-        }
+
+
+         // if(e.currentTarget.name === "platforms") {
+        //     const platformsSearch = e.target.value;
+        //   console.log(platformsSearch);
+        //    dispatch(filterPlatforms(platformsSearch));
+       //     dispatch(setCurrentPage(1));
+       // }
+
 
 
 
@@ -111,7 +114,7 @@ const SearchAndFilter = () => {
 
 return (
 <div className={style.body}>
-<p>Genres:  </p>
+<p> Genres:  </p>
 <select onChange={handleClick} name="genres">
 {
                             Array.isArray(genres) && genres?.map( (genres, index) => {
@@ -119,18 +122,10 @@ return (
                             }) 
                         }
                     </select>
-                
-                    <p>Platforms:  </p>
-                    <select onChange={handleClick} name="platforms">
-{
-                            Array.isArray(platforms) && platforms?.map( (platforms, index) => {
-                                return <option value={platforms.name} key={index}>{platforms.name}</option>
-                            }) 
-                        }
-                    </select>
+    
                 
 
-                    <p>Rating</p>
+                    <p> Rating: </p>
                     <select onChange={handleClick} name="rating">
                 
                     <option value="minimun">Minimun</option>
@@ -142,7 +137,7 @@ return (
 
       
 
-<p>Alphabetic</p>
+<p>Alphabetic:</p>
                 
                 
                 <select onChange={handleClick} name="alphabetic">
@@ -159,8 +154,11 @@ return (
 
 </div>
 
+
+
 <p>Seleccione:</p>
-<div>
+
+<div className={style.search}>
     <label>ALL</label>
     <input type="checkbox" name="" value="all" checked={display.all} onChange={handleChecked}/>
 </div>

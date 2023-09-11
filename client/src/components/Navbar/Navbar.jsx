@@ -31,7 +31,7 @@ onClick={handleClick}>PI-VIDEOGAMES-HENRY
              
                 </NavLink>
              
-             <div className={style.log}>
+             <div>
                 <NavLink to="/" >
              
                     <p>LOGOUT</p>

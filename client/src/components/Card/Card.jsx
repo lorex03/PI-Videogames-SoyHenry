@@ -5,7 +5,7 @@ import { getGamesById } from "../../redux/actions";
 
 import { useDispatch } from 'react-redux';
 import { Link, NavLink } from "react-router-dom";
-const Card = ({id, background_image, name,genres,platforms,rating}) => {
+const Card = ({id, background_image, name,genres,rating}) => {
 
     const dispatch = useDispatch();
 
@@ -25,19 +25,16 @@ const Card = ({id, background_image, name,genres,platforms,rating}) => {
 <div className={style.gen}>
                     <h1>{name}</h1>
 <h2>Rating:{rating}</h2>
-                    
+
+
+<h2>Genres:</h2>          
                         {   
                             genres?.map( (element,index) => {
                                 return (index <= 3) ? <p key={index}>{element}</p> : null
                             })
                         }
                        
-                       
-                        {   
-   platforms?.map( (element,index) => {
-        return (index <= 3) ? <p key={index}>{element}</p> : null
-    })
- }
+                    
                        
 
                     </div>
@@ -49,9 +46,9 @@ const Card = ({id, background_image, name,genres,platforms,rating}) => {
  
                      
                        
-                        </div>
-                    </div>
-                </div>
+          </div>
+       </div>
+     </div>
         )
     }
 
