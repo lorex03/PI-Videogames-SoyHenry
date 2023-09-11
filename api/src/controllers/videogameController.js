@@ -149,12 +149,12 @@ return allVideogames;
  
 
 const getByIdGame = async(id) => {
-  if(!id) {
+  if(id.includes("-")) {
      
   const gameIdDB = await Videogame.findByPk(id, {
          include: {   
          model: Genre,
-             attributes: ['name'],
+           //  attributes: ['name'],
             through: {
                  attributes: [],
              }
@@ -185,6 +185,9 @@ return gamesForApi
       
   
 }
+      
+  
+
      
 
 

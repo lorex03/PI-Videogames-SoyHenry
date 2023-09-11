@@ -31,6 +31,9 @@ const getGameByIdHandler=async(req,res) =>{
     }
     }
 
+
+
+    
   ////NO ESTA DESCRIPTION POR QUE NO TENGO ESE DATO EN MI CONTROLLER ALLVIDEOGAMES
   
 const postCreateHandler= async(req,res) =>{
