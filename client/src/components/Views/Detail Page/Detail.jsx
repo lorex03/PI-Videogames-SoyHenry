@@ -40,10 +40,6 @@ const Detail = () => {
                 <p> Rating_Top:   {game.rating_top}  </p>
                 <p> Description:   {game.description}  </p>
             </div>
-           
-           
-
-
 
             <div>
                 <h2>Genres</h2>

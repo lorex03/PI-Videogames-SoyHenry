@@ -1,4 +1,6 @@
 const API_KEY = `?api_key=${process.env.API_KEY}`;
+const URL =`https://api.rawg.io/api/genres?key=`
+
 
 const infoCleaner=(arr) =>{
 
@@ -15,6 +17,8 @@ const infoCleaner=(arr) =>{
     }
     })
    }
+
+   
    const mapGenre = (array) => {
       return array.results.map((genre) => {
         return {
@@ -41,4 +45,4 @@ const mapPlatform = (array) => {
 
 
 
-   module.exports={infoCleaner,mapGenre,mapPlatform}
+   module.exports={infoCleaner,URL,mapPlatform}

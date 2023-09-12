@@ -1,10 +1,7 @@
 const { Genre } = require("../db");
 const axios = require("axios");
 const {API_KEY} =process.env
-const {mapGenre} =require('./utils')
-
-
-
+//const {mapGenre} =require('./utils')
 
   const getGenres = async () => {
     const { data } = await axios.get(
@@ -30,9 +27,6 @@ const {mapGenre} =require('./utils')
 
 
 module.exports={getGenres}
-
-
-
 
 //URL A UTILIZAR POR GENERO : https://api.rawg.io/api/genres
 

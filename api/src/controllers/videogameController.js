@@ -113,40 +113,98 @@ return allVideogames;
 
 
  // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
+ // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
+
+ 
  const searchGameByName = async (name) => {
   const names = name.toLowerCase();
   const infoApi=(
-    await axios.get(`https://api.rawg.io/api/games?search=${names}&key=${API_KEY}`)
+    await axios.get(`https://api.rawg.io/api/games?name=${names}&key=${API_KEY}`)
     ).data;
-  const gamesApi=  infoCleaner(infoApi);
-  
-  
-  const gameFiltered= gamesApi.filter((game) => game.name.toLowerCase() === names);
 
-  const VideogameDb=await Videogame.findAll({
-    where: {
-      name: {
-          [Op.iLike]: `%${names}%`,
+
+    const allNameApi= await infoApi.results.map ((g) => {
+      return {
+        id: g.id,
+        name: g.name,
+        released: g.released,
+        background_image: g.background_image,
+        rating: g.rating,
+        rating_top: g.rating_top,
+        platforms: g.platforms.map((p) => p.platform.name),
+        genres: g.genres.map((g) => g.name),
+      };
+    });
+    const gameFiltered= allNameApi.filter((game) => game.name.toLowerCase() === names);
+    const allNameDb= await Videogame.findAll({
+      include: {
+        model: Genre,
+        attributes: ["name"],
+        through: {
+          attributes: [], //de la tabla intermedia no quiero nada
+        },
       },
-  },
-  include: [
-      {
-          model: Genre,
-          attributes: ['name'],
-          through: {
-              attributes: [],
-          },
-      },
-  ],
-  limit: 15,
+    });
+
+const infoName=gameFiltered.concat(allNameDb)
+//volvemos a mapear y retornamos todo junto
+
+const allVideoNamesgames = infoName.map((videogame) => {
+  return {
+    id: videogame.id,
+    name: videogame.name,
+    released: videogame.released,
+    background_image: videogame.background_image,
+    rating: videogame.rating,
+    rating_top: videogame.rating_top,
+    platforms: videogame.platforms,
+    genres: videogame.genres || videogame.Genres.map(g => g.name), //Genres.map:mapea los de la database
+  };
 });
-   
-  
-  return [...gameFiltered,...VideogameDb]
-}
- 
 
- 
+
+// console.log(allVideogames);
+
+//de prueba:
+// const {data} = await axios(`https://api.rawg.io/api/games?key=${API_KEY}`);
+// return data
+
+if (allVideoNamesgames.length === 0) {
+    return "No hay videojuegos en este momento"
+
+}
+return allVideoNamesgames;
+
+
+  }
+    
+    //unimos a los datos de la api con los de la db
+
+
+
+
+ //const gamesApi=  infoCleaner(infoApi);
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const getByIdGame = async(id) => {
   if(id.includes("-")) {

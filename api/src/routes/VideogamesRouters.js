@@ -6,6 +6,7 @@ const videogameRouter=Router();
 
 //RUTA PARA OBTENER TODOS LOS PAISES QUE ESTAN GUARDADOS EN MI BASE DE DATOS
 videogameRouter.get("/",getVideogamesHandler )
+
 //videogameRouter.get('/name',getVideogamesHandler )
 videogameRouter.get("/:id",getGameByIdHandler)
 videogameRouter.post("/" ,createVideoGames)

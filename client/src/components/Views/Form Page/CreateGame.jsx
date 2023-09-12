@@ -229,6 +229,32 @@ const CreateGame = () => {
     export default CreateGame;
 
 
+
+
+
+
+
+    
+    //<label><h2> Genres</h2> </label>
+   // <select name="" id="" multiple>
+  // {
+    //  Array.isArray(genres) && genres?.map( (genres, index) => {
+     //       return <option value={genres.id} key={index} name="genres" onClick={handleOptionsGenClick}>{genres.name}</option>
+    //    })
+  //  }
+//</select>
+//<ul>
+  //  {   
+     //   (Array.isArray(genres)) ?
+    //    formData.genres.map( id => {
+          // return genres?.map( (genres, index) =>  (genres.id === id) ? <li key={index}>*{genres.name}</li> : null)
+   //     })
+     //   : null
+ //   }
+
+    
+    
+    
     //____________________________________________________________________
    // 📍 FORM PAGE |: en esta vista se encontrará 
  //  el formulario para crear un nuevo videojuego.
