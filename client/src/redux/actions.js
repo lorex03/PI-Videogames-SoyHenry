@@ -87,7 +87,7 @@ export const getGenres = () => {
 export const getPlatforms = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get("http://localhost:3001/platforms");
+            const { data } = await axios.get("http://localhost:3001/videogames/platforms");
             dispatch({type: GET_PLATFORMS, payload: data })
         } catch (error) {
             alert("error: " + error.response.data.error);

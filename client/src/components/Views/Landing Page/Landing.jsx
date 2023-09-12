@@ -5,10 +5,10 @@ import style from './Landing.module.css';
 const Landing = ({login}) => {
     return(
     <div className={style.body}>
-    <h1>WELCOME </h1>
-
+    
+     <h1>   WELCOME </h1>
+<h1> TO THE WORLD OF ALL VIDEOGAMES  </h1>
     <button type='submit' onClick={login}> HOME</button>
-
 
     </div>
     

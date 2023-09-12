@@ -16,7 +16,7 @@
 const{Videogame,Genre}= require('../db')
 const {Op} = require ('sequelize')
 const {API_KEY} =process.env
-const {infoCleaner }= require ('./utils')
+const {transformDbDataId,transformApiDataId}= require ('./utils')
 
 const axios = require('axios');
 
@@ -186,33 +186,13 @@ return allVideoNamesgames;
  //const gamesApi=  infoCleaner(infoApi);
   
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const getByIdGame = async(id) => {
+ const getByIdGame = async(id) => {
   if(id.includes("-")) {
      
   const gameIdDB = await Videogame.findByPk(id, {
          include: {   
          model: Genre,
-            // attributes: ['name'],
+             attributes: ['name'],
             through: {
                  attributes: [],
              }
@@ -243,8 +223,37 @@ return gamesForApi
       
   
 }
-      
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   
+
+      
+  //CREO Q LO Q FALTA ES CONCATENAR Y MAPEAR DE NUEVO 
+  //PARA Q SE TOME DE IGUAL FORMA LOS DE LA BASE DE DATOS 
+  // Y LOS DE LA API DE LA MISMA FORMA 
 
      
 

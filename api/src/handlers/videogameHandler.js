@@ -23,11 +23,11 @@ const getGameByIdHandler=async(req,res) =>{
       const { id } = req.params;
     const DetailGame=await getByIdGame(id);
     
-    res.status(200).json(DetailGame)
+    res.status(201).json(DetailGame)
     
     
     } catch (error) {
-     return   res.status(400).json({error:error.message})
+     return   res.status(500).json({error:error.message})
     }
     }
 

@@ -1,18 +1,28 @@
 //ver si pongo algun videito 
 import style from "../Form Page/Form.module.css"
 import { validation } from "./validation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {  useSelector, useDispatch } from 'react-redux';
 
-import { createGame, displayState } from "../../../redux/actions";
+import { createGame, displayState,getPlatforms } from "../../../redux/actions";
 
 import { useNavigate } from 'react-router-dom';
 
 const CreateGame = () => {
+    
     const dispatch = useDispatch();
+    
     const genres = useSelector( state => state.genres );
-    const platforms = useSelector( state => state.platforms );
+    
+    const platforms = useSelector( (state) => state.platforms );
+    
     const navigate = useNavigate();
+
+useEffect(() => {
+
+    dispatch(getPlatforms())
+}, [dispatch])
+
 
     const [formData, setFormData] = useState({
       name: '',
@@ -53,19 +63,37 @@ const CreateGame = () => {
     }
    
 
-    const handleOptionPlatClick = (e) => {
-        const platformId = e.target.value;
-        const upPlatforms = formData.platforms || [];
-        if(!upPlatforms.includes(Number(platformId))) {
-            let result = [...upPlatforms,Number(platformId)];
-            setFormData({
-                ...formData,
-                platforms: result,
-            })
-        }
-    }
+    //const handleOptionPlatClick = (e) => {
+      //  const platformId = e.target.value;
+      //   const upPlatforms = formData.platforms || [];
+    //     if(!upPlatforms.includes(Number(platformId))) {
+        //     let result = [...upPlatforms,Number(platformId)];
+         //    setFormData({
+         //        ...formData,
+          //       platforms: result,
+         //    })
+      //   }
+    // }
 
+    const handleSelectPlatforms = (event) => {
+        const property = event.target.name;
+        const value = event.target.value.toUpperCase();
+        setErros(validation({ ...formData, [property]: value }));
+        setFormData({
+          ...formData,
+          platforms: [...formData.platforms, event.target.value],
+        });
+     };
+ 
 
+     
+     const handleDeletePlatforms = (e) => {
+       e.preventDefault();
+       setFormData({
+         ...formData,
+         platforms: formData.platforms.filter((platform) => platform !== e.target.value),
+       });
+     };
 
 
 
@@ -139,30 +167,51 @@ const CreateGame = () => {
 
 
 
-
-   <label><h2> Platforms</h2> </label>
-                    <select name="" id="" multiple>
-                        {
-                           Array.isArray(platforms) && platforms?.map( (platforms, index) => {
-                                return <option value={platforms.id} key={index} name="platforms" onClick={handleOptionPlatClick}>{platforms.name}</option>
-                            })
-                        }
-                    </select>
-                    <ul>
-                        {   
-                            (Array.isArray(platforms)) ?
-                            formData.platforms.map( id => {
-                               return platforms?.map( (platforms, index) =>  (platforms.id === id) ? <li key={index}>*{platforms.name}</li> : null)
-                            })
-                            : null
-                        }
-
-
-
-
-
   </ul>
-  </ul>
+  <div className={style.select}>
+                <label htmlFor="platforms"> Platforms:</label>
+                <select
+                  // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                  name="platforms"
+                  size={1}
+                  onChange={(e) => handleSelectPlatforms(e)}
+                >
+                  {/* <option selected>Platform</option> */}
+                  {platforms.map((p, i) => (
+                    <option key={i} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
+                {errors.platforms1 ? (
+                  <p className={style.p}>{errors.platforms1}</p>
+                ) : (
+                  <p className={style.p}>{errors.platforms2}</p>
+                )}
+                <p>Platforms:</p>
+                <div>
+                  {formData.platforms?.map((platform, i) => {
+                    return (
+                      <span key={i}>
+                        {platform}
+                        <button
+                          value={platform}
+                          onClick={(e) => handleDeletePlatforms(e)}
+                        >
+                          X
+                        </button>
+                      </span>
+                    );
+                  })}
+                </div>
+                {/* <div className={styles.selectionp}>
+                  {values.platforms.join(" - ")}
+                </div> */}
+              </div>
+              <br />
+
+
+
 <label htmlFor="">Rating</label>
 
                     <input type="number" name="rating" className="number" value={formData.rating} onChange={handleChangle}/>

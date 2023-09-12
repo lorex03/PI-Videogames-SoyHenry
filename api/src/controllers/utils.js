@@ -1,32 +1,75 @@
 const API_KEY = `?api_key=${process.env.API_KEY}`;
 const URL =`https://api.rawg.io/api/genres?key=`
 
+const transformApiDataId = (data) => {
+	//Destructuring received data
+	let {
+		id,
+		name,
+		description,
+		platforms,
+		background_image,
+		released,
+		rating,
+		genres,
+	} = data;
+	//Getting needed information from platforms
+	platforms = platforms.map((plat) => {
+		const { platform } = plat;
+		return platform.name;
+	});
+	//Getting needed information from genres
+	genres = genres.map((gen) => gen.name);
+	//Returning arranged information
+	return {
+		id,
+		name,
+		description,
+		platforms,
+		background_image,
+		released,
+		rating,
+		genres,
+	};
+};
 
-const infoCleaner=(arr) =>{
 
-    return arr.results.map( (game) => {
-    return {
-       id: game.id,
-        name:game.name,
-        released: game.released,
-        rating: game.rating,
-        rating_top:game.rating_top,
-        background_image: game.background_image,
-        platforms: game.platforms.map((platform) => platform.platform.name),
-        genres: game.genres.map((genre) => genre.name)
-    }
-    })
-   }
 
-   
-   const mapGenre = (array) => {
-      return array.results.map((genre) => {
-        return {
-          id_api: genre.GenreId,
-          name: genre.name,
-        };
-      });
-    };
+
+
+
+
+
+
+
+
+const transformDbDataId = (data) => {
+	//Destructuring received data
+	let {
+		id,
+		name,
+		description,
+		platforms,
+		background_image,
+		released,
+		rating,
+		genres,
+	} = data;
+	//Getting needed information from genres
+	genres = genres.map((gen) => gen.name);
+	//Returning arranged information
+	return {
+		id,
+		name,
+		description,
+		platforms,
+		background_image,
+		released,
+		rating: Number(rating),
+		genres,
+	};
+};
+
 
 
 
@@ -45,4 +88,4 @@ const mapPlatform = (array) => {
 
 
 
-   module.exports={infoCleaner,URL,mapPlatform}
+   module.exports={transformDbDataId,transformApiDataId,mapPlatform}

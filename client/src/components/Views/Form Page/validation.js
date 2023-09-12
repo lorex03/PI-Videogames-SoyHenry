@@ -30,6 +30,10 @@ export const validation = (data) => {
 
     if(!numberValidationrating.test(data.rating) || data.rating <= 0 || data.rating > 5) errors.rating = "cannot be a floating number, and year cannot be higher than 5 and less 1"
 
+    if (data.platforms.length < 1) {
+      errors.platforms2 = "The game must have at least one platform.";
+    }
+
     return errors;
 
 
