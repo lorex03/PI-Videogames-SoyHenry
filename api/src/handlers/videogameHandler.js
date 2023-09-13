@@ -34,21 +34,7 @@ const getGameByIdHandler=async(req,res) =>{
 
 
     
-  ////NO ESTA DESCRIPTION POR QUE NO TENGO ESE DATO EN MI CONTROLLER ALLVIDEOGAMES
   
-const postCreateHandler= async(req,res) =>{
-    try { 
-     const{ name, released,rating,background_image,genres,platforms}= req.body;
-
-   
-    const newGame = await createVideoGames( name, released,rating,background_image,genres,platforms);
-   return res.status(201).json(newGame)
-    }
-     catch(error){
-   return res.status(500).json({error:error.message})
-    } }
-
-
 
 
 
@@ -57,6 +43,6 @@ const postCreateHandler= async(req,res) =>{
 module.exports= {
    getVideogamesHandler,
    getGameByIdHandler,
-   postCreateHandler
+
 
   }

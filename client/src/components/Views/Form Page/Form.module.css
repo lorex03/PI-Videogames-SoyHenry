@@ -1,10 +1,80 @@
-.body{
-    display: block;
-    grid-template-columns: auto;
+.body{   
+display: block;
+      grid-template-columns: 1fr 1fr auto 1fr 1 fr auto;
+    
+      text-align: center;
+       color:rgb(232, 229, 248);
+    font-size:  30px;
+    margin-top: 50px;
+    border-radius: 1ch;
+    padding-top: 3cm;
+   
+   
+   }
+   
+   
+   .genr{
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
-    color:rgb(236, 233, 250);
- font-size:  20px;
- margin-top: auto;
- border-radius: 0ch;
- padding-top: 6cm;
+       width: 200px;
+   height: 100px;
+   font-size: 20px;
+   }
+  
+   
+   
+   .select{
+       font-size: 30px;
+   }
+   label{
+       font-size: 30px;
+   }
+   
+   .des{
+    display: block;
+   }
+
+   .rel{
+    display: block;
+    
+   }
+
+   .sel{
+    display:inline;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+   }
+
+.se{
+    font-size: 20px;
+}
+
+.count{
+display: block;
+
+}
+
+.cont{
+    display: block;
+  
+}
+.number{
+height: 30px;
+}
+
+h2{
+    padding-top: 0%;
+}
+
+.goku{
+    margin-top: 50px;
+
+
+}
+
+.pepe{
+    height: 30px;
+    font-size: 20px;
 }

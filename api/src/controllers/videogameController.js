@@ -103,16 +103,9 @@ if (allVideogames.length === 0) {
 }
 return allVideogames;
 
-
-
-
-
-
-
 }
 
 
- // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
  // toLowerCase();name.toLowerCase());Esto buscará el juego por nombre y es insensible a mayúsculas y minúsculas
 
  
@@ -224,48 +217,13 @@ return gamesForApi
   
 }
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-  
-
-      
-  //CREO Q LO Q FALTA ES CONCATENAR Y MAPEAR DE NUEVO 
-  //PARA Q SE TOME DE IGUAL FORMA LOS DE LA BASE DE DATOS 
-  // Y LOS DE LA API DE LA MISMA FORMA 
-
-     
-
-
    //| name | released | rating | rating_top | description | background_image | platform
        
    const createVideoGames= async(req,res) => {
     try {
       const{ name, released,rating,background_image,description,genres,platforms}= req.body;
       if(!name || !released || !rating || !background_image ||  !genres || !description || ! platforms )throw new Error ("Falta por llenar datos");
- 
- 
+
       const newVideogame = await Videogame.create({
     name,
      released,
@@ -276,7 +234,6 @@ return gamesForApi
      genres
 })
 newVideogame.addGenres(genres)
-//newVideogame.addPlatforms(platforms)
 return res.status(200).json(newVideogame);
 
 
@@ -284,7 +241,6 @@ return res.status(200).json(newVideogame);
     return res.status(500).json({error: error.message});
 }
 }
-//agregue genres , FALTA SOLO EL DE CREAR EL VIDEOJUEGO 5/9
 module.exports={
   getAllVideogames,
   searchGameByName,

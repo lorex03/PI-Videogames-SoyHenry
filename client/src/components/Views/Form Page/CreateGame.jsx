@@ -63,17 +63,7 @@ useEffect(() => {
     }
    
 
-    //const handleOptionPlatClick = (e) => {
-      //  const platformId = e.target.value;
-      //   const upPlatforms = formData.platforms || [];
-    //     if(!upPlatforms.includes(Number(platformId))) {
-        //     let result = [...upPlatforms,Number(platformId)];
-         //    setFormData({
-         //        ...formData,
-          //       platforms: result,
-         //    })
-      //   }
-    // }
+    
 
     const handleSelectPlatforms = (event) => {
         const property = event.target.name;
@@ -143,13 +133,13 @@ useEffect(() => {
     <div>
     <h1>CREATE YOUR VIDEOGAME</h1>
                 <form action="" onSubmit={handleSubmit}>             
-                    <input type="text" name="name" placeholder="Game name" value={formData.name} onChange={handleChangle}/>
+                    <input  type="text" name="name" placeholder="Game name" value={formData.name} onChange={handleChangle}/>
                     <input type="text" name="background_image" placeholder="image url" value={formData.background_image} onChange={handleChangle}/>
                     <br />
                    
                    
-                    <label><h2> Genres</h2> </label>
-                    <select name="" id="" multiple>
+                    <label className={style.goku}><h2> Genres</h2> </label>
+                    <select  name="" id="" multiple>
                         {
                            Array.isArray(genres) && genres?.map( (genres, index) => {
                                 return <option value={genres.id} key={index} name="genres" onClick={handleOptionsGenClick}>{genres.name}</option>
@@ -170,8 +160,8 @@ useEffect(() => {
   </ul>
   <div className={style.select}>
                 <label htmlFor="platforms"> Platforms:</label>
-                <select
-                  // value={values.platforms} //ESTO ES NUEVO VER SI FUNCIONA!!!
+                <select className={style.sel}
+                
                   name="platforms"
                   size={1}
                   onChange={(e) => handleSelectPlatforms(e)}
@@ -212,19 +202,21 @@ useEffect(() => {
 
 
 
-<label htmlFor="">Rating</label>
+<label className={style.count}  htmlFor="">Rating</label>
 
-                    <input type="number" name="rating" className="number" value={formData.rating} onChange={handleChangle}/>
+                   <div className={style.cont}> <input  type="number" name="rating" className={style.pepe} value={formData.rating} onChange={handleChangle}/></div>
                    
-                    <label htmlFor="released">Released</label>
-          <input
+
+
+                    <label className={style.rel} htmlFor="released">Released</label>
+          <input className={style.se}
             type="date"
             name="released"
             value={formData.released}
             onChange={handleChangle}/>
                    
                    
-                   <label htmlFor="description">Description:</label>
+                   <label className={style.des} htmlFor="description">Description:</label>
         <br />
         <textarea
           name="description"
@@ -263,47 +255,13 @@ useEffect(() => {
    
 
   </div>
-    
-    
-
-
-
-
-
-  </div>
+ </div>
         
     )
     }
-    //background_image
+ 
     export default CreateGame;
 
-
-
-
-
-
-
-    
-    //<label><h2> Genres</h2> </label>
-   // <select name="" id="" multiple>
-  // {
-    //  Array.isArray(genres) && genres?.map( (genres, index) => {
-     //       return <option value={genres.id} key={index} name="genres" onClick={handleOptionsGenClick}>{genres.name}</option>
-    //    })
-  //  }
-//</select>
-//<ul>
-  //  {   
-     //   (Array.isArray(genres)) ?
-    //    formData.genres.map( id => {
-          // return genres?.map( (genres, index) =>  (genres.id === id) ? <li key={index}>*{genres.name}</li> : null)
-   //     })
-     //   : null
- //   }
-
-    
-    
-    
     //____________________________________________________________________
    // 📍 FORM PAGE |: en esta vista se encontrará 
  //  el formulario para crear un nuevo videojuego.
@@ -334,7 +292,3 @@ useEffect(() => {
 
  //Puedes agregar las validaciones que consideres. 
     //____________________________________________________________________
-
- //Por ejemplo: que el nombre del videojuego no pueda contener símbolos, 
-
- //o que el rating no pueda exceder determinado valor, etc.
