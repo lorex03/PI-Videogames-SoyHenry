@@ -11,7 +11,7 @@ const Detail = () => {
   const game = useSelector( state => state.gameById );
   
   const clickBack = () => {
-    console.log("hola");
+    //console.log("hola");
     navigate("/home");
     dispatch(resetById());
     
@@ -52,7 +52,7 @@ const Detail = () => {
                 </ul>
 
             </div>
-            <button onClick={clickBack}>GO BACK</button>
+            <button className={style.but} onClick={clickBack}>GO BACK</button>
         </div>
     </div>
 
@@ -74,21 +74,4 @@ const Detail = () => {
     //    Rating.
     // Géneros.
 
-      // EN MI BACKEND ESTO ESTA EN INGLES ASI QUE 
-        //   //     ID.   = ID 
-     //  Nombre. =         NAME 
-   //    Imagen. =         BACKGROUND IMAGE 
-     // Plataformas. =     PLATFORM 
-  //    Descripción.=      DESCRIPTION
-       // Fecha de lanzamiento.  =  RELEASED
-    //    Rating.=               RATIN Y RATING TOP
-    // Géneros. =                  GENRES
-
-    
-     //  Nombre.
-   //    Imagen.
-     // Plataformas.
-  //    Descripción.
-       // Fecha de lanzamiento. 
-    //    Rating.
-    // Géneros.
+   

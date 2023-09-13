@@ -19,7 +19,7 @@ const SearchAndFilter = () => {
         //Este if me permite identificar si estoy usando filtros
         if(e.currentTarget.name === "genres") {
             const genresSearch = e.target.value;
-            //console.log("buscar:", temperamentSearch);
+          
             dispatch(filterGenres(genresSearch));
             dispatch(setCurrentPage(1));
         }
@@ -27,25 +27,19 @@ const SearchAndFilter = () => {
 
 
 
-         // if(e.currentTarget.name === "platforms") {
-        //     const platformsSearch = e.target.value;
-        //   console.log(platformsSearch);
-        //    dispatch(filterPlatforms(platformsSearch));
-       //     dispatch(setCurrentPage(1));
-       // }
 
 
 
 
         if(e.currentTarget.name === "rating") {
             const ratingSearch = e.target.value;
-            //console.log(weightSearch);
+            
             dispatch(filterRating(ratingSearch));
             dispatch(setCurrentPage(1));
         }
         if(e.currentTarget.name === "alphabetic") {
             const alphabeticSearch = e.target.value;
-            //console.log(alphabeticSearch);
+          
             dispatch(filterAlphabetic(alphabeticSearch))
             dispatch(setCurrentPage(1));
         }
@@ -115,7 +109,7 @@ const SearchAndFilter = () => {
 return (
 <div className={style.body}>
 <p> Genres:  </p>
-<select onChange={handleClick} name="genres">
+<select className={style.alpha} onChange={handleClick} name="genres">
 {
                             Array.isArray(genres) && genres?.map( (genres, index) => {
                                 return <option value={genres.name} key={index}>{genres.name}</option>
@@ -126,7 +120,7 @@ return (
                 
 
                     <p> Rating: </p>
-                    <select onChange={handleClick} name="rating">
+                    <select  className={style.alpha}onChange={handleClick} name="rating">
                 
                     <option value="minimun">Minimun</option>
                 
@@ -137,12 +131,12 @@ return (
 
       
 
-<p>Alphabetic:</p>
+<p >Alphabetic:</p>
                 
                 
-                <select onChange={handleClick} name="alphabetic">
+                <select className={style.alpha} onChange={handleClick} name="alphabetic">
             
-                <option value="descendent">Descendent</option>
+                <option  value="descendent">Descendent</option>
                 <option value="ascendent">Ascendent</option>
             
             
@@ -150,7 +144,7 @@ return (
 
 <div className={style.nam}>
 
-<input type="search" onKeyUp={handleEnter} placeholder="Search by name"/>
+<input type="search" onKeyUp={handleEnter} className={style.search} placeholder="Search by name"/>
 
 </div>
 
@@ -175,4 +169,3 @@ return (
 
 ) }
 export default SearchAndFilter;
-//iria un DIV EN SELECCIONE 

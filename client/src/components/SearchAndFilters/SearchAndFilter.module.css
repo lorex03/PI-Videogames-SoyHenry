@@ -7,12 +7,23 @@ display: grid;
  text-align: center;
 
 }
+.alpha{
+    font-size: 20px;
+}
 
 .nam{
  padding-top: 30px;   
-    font-size: 10cap;
+ padding-top: 10px;
+   
     
+}
+p{
+    height: 30px;
+    font-size: 25px;
 }
 
 
+.search{
 
+font-size: 23px; 
+}

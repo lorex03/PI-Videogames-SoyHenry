@@ -12,7 +12,7 @@ import {
     GET_GAMES_BY_ID,
     CREATE_GAME,
     GET_PLATFORMS,
-    FILTER_PLATFORMS
+    //FILTER_PLATFORMS
 } from "./actions-type"
 
 

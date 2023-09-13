@@ -11,11 +11,13 @@ import { useNavigate } from 'react-router-dom';
 const CreateGame = () => {
     
     const dispatch = useDispatch();
-    
+    //el hook useDispatch para enviar acciones a Redux y cuando se envía el formulario, 
+    //se llama a la función createGame para crear un nuevo juego en mi servidor 
     const genres = useSelector( state => state.genres );
     
     const platforms = useSelector( (state) => state.platforms );
-    
+    // traigo el useSelector para obtener los géneros 
+    //y las plataformas del estado global de Redux 
     const navigate = useNavigate();
 
 useEffect(() => {
@@ -74,7 +76,9 @@ useEffect(() => {
           platforms: [...formData.platforms, event.target.value],
         });
      };
- 
+ // La función utiliza event.target.name y event.target.value para obtener el nombre y
+ // el valor de la plataforma seleccionada. 
+ //Luego, utilizara la función validation que creo para validar los datos del formulario
 
      
      const handleDeletePlatforms = (e) => {
@@ -102,7 +106,7 @@ useEffect(() => {
         if(errors.rating) {
             alert(errors.rating)
         }
-//background_image
+
         if(!errors.name && !errors.background_image && !errors.rating) {
             const game = {
                 name:  formData.name,
@@ -126,7 +130,6 @@ useEffect(() => {
         
     }
    
-   //background_image
     return(
     <div className={style.body}>
     
@@ -194,9 +197,7 @@ useEffect(() => {
                     );
                   })}
                 </div>
-                {/* <div className={styles.selectionp}>
-                  {values.platforms.join(" - ")}
-                </div> */}
+          
               </div>
               <br />
 

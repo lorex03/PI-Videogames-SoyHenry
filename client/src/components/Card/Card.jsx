@@ -27,7 +27,7 @@ const Card = ({id, background_image, name,genres,rating}) => {
 <h2>Rating:{rating}</h2>
 
 
-<h2>Genres:</h2>          
+<h2 className={style.Car}>Genres:</h2>          
                         {   
                             genres?.map( (element,index) => {
                                 return (index <= 3) ? <p key={index}>{element}</p> : null
@@ -41,7 +41,7 @@ const Card = ({id, background_image, name,genres,rating}) => {
 
                     <div className={style.det}>
                     <Link to={`/detail/${id}`}>
-       <button type='submit' onClick={clickDetail}> {`>`}</button>
+       <button className={style.butt} type='submit' onClick={clickDetail}> {`>`}</button>
     </Link>
  
                      
@@ -55,10 +55,3 @@ const Card = ({id, background_image, name,genres,rating}) => {
 
 export default Card;
 
-
-//  DEBERIA SI QUIERO QUE MUESTRE PLATFORMS EN 
-// {   
-  //   platforms?.map( (element,index) => {
-   //      return (index <= 3) ? <p key={index}>{element}</p> : null
- //    })
-// }

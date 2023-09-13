@@ -9,7 +9,7 @@ import Error404 from './components/Error 404/Error404';
 import Navbar from './components/Navbar/Navbar';
 import { useDispatch } from 'react-redux';
 import SearchAndFilter from './components/SearchAndFilters/SearchAndFilter'
-//import SearchAndFilter from './components/SearchAndFilters/SearchAndFilter';
+
 //IMPORTO MIS PAGINAS PRINCIPALES Q MOSTRARE EN MI FRONTEND
 import {getGames,getGenres,setCurrentPage} from './redux/actions'
 
@@ -28,7 +28,7 @@ function App() {
     //! Me va a traer todos los videojuegos siempre y cuando sea la url "/home"
     if(location.pathname === "/home" || location.pathname === "/createGame") {
       dispatch(getGenres());
-    //  dispatch(getPlatforms());
+    
       dispatch(setCurrentPage(1));
     }
  

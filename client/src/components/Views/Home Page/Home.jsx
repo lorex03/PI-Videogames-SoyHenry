@@ -7,7 +7,7 @@ const Home = () => {
 let result;
 
   //para poner TODOS LOS PERROS (ALL) LOS QUE CREARON EN DB (CREATE)
-    //Y LOS DE LA API SOLAMENTE COMO (dogsApi)
+   
     
     let gamesALL = useSelector( state => state.games );
     
@@ -28,10 +28,7 @@ let result;
   
   const gamesByName = useSelector( state => state.gamesByName );
     
-  //console.log("filterTemperaments:",filterTemperaments);
-  //console.log("filterWeight:",filterWeight);
-  //console.log("filterAlphabetic:",filterAlphabetic);
-  //console.log(dogsByName);
+  
 
   if(display.all) {
       if(filterGenres.state) {

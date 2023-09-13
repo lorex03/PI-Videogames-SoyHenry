@@ -45,22 +45,3 @@ onClick={handleClick}>PI-VIDEOGAMES-HENRY
 
 }
 export default Navbar;
- // PROBAR DE ESTA FORMA CUALLQUIER COSA
-//function Navbar ({handleChange , handleSubmit}){
-//return(
-  //<div>
- // <form onChange= {handleChange}>
- // <input placeholder="Busqueda" type = "search"/>
-  
- // <button type ="submit" onClick={handleSubmit}>
-  //   Buscar
- //   </button>
-  
- // </form>
-  
- // </div>
-  
-  
-
- // )
- // }
