@@ -141,7 +141,7 @@ useEffect(() => {
                     <br />
                    
                    
-                    <label className={style.goku}><h2> Genres</h2> </label>
+     <label className={style.goku}><h2 className={style.g}> Genres</h2> </label>
                     <select  name="" id="" multiple>
                         {
                            Array.isArray(genres) && genres?.map( (genres, index) => {
@@ -162,7 +162,7 @@ useEffect(() => {
 
   </ul>
   <div className={style.select}>
-                <label htmlFor="platforms"> Platforms:</label>
+                <label className={style.g} htmlFor="platforms"><h2> Platforms:</h2></label>
                 <select className={style.sel}
                 
                   name="platforms"

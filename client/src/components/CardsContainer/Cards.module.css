@@ -13,13 +13,16 @@
              padding-right: 50px;
              animation-name: papa;
              animation-iteration-count: 1;
-           animation-delay: 4s;
+           animation-delay: 2s;
            animation-duration: 5s;
+           
 }
 
 @keyframes papa{
-  0%{
-transform:rotate(360deg);
+    from {
+      transform: translate(100%)
+/*  0%{
+transform:rotate(360deg);*/
 
   }
 }

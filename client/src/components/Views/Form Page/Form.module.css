@@ -64,9 +64,7 @@ display: block;
 height: 30px;
 }
 
-h2{
-    padding-top: 0%;
-}
+
 
 .goku{
     margin-top: 50px;
@@ -77,4 +75,8 @@ h2{
 .pepe{
     height: 30px;
     font-size: 20px;
+}
+
+.g{
+    color:black
 }
